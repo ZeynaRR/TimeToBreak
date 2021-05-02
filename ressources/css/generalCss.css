@@ -1,0 +1,25 @@
+:root {
+    /*Couleurs*/
+    --header: #6299AB;
+    --background: #4A707C;
+    --rose: #DF7878;
+    --texteGris: #BDBDBD;
+    --bgInput: #E0EAFF;
+    --erreur: red;
+
+    /*formes*/
+    --arrondi: 4px;
+    --arrondiInput: 10px;
+}
+
+body{
+    background-color: var(--background);
+}
+
+header{
+    background-color: var(--header);
+}
+
+.erreurs{
+    color: var(--erreur);
+}
