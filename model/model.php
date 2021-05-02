@@ -4,3 +4,5 @@ function message()
 {
 	return "Welcome";
 }
+
+?>
