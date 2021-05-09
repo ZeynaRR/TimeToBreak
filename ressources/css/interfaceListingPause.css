@@ -1,0 +1,22 @@
+body{
+	background: #4A707C;
+}
+h1{
+	text-align:center;
+	color:#DF7878;
+}
+section{
+	padding:20px;
+	border:10px #DF7878 solid;
+	border-radius:40px;
+	width:100%;
+	height:500px;/*to be update*/
+}
+table
+{
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+}
+td,th
+{
+    border: 1px solid black;
+}
