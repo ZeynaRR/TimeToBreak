@@ -70,6 +70,7 @@ function getAdmins()
 	return $req;
 }
 
+
 function banUser($id)
 {
 	$bdd = dbConnect();
@@ -215,6 +216,7 @@ function updateDatabaseBreak(){
 	));
 }
 //-------------------------------------
+
 function isDataValidForSendingEmailToTimeToBreak(){
 	$isItDataCorrectForSendingMailToTTB=true;
 	if(isset($_POST["identifiant"])==false || empty($_POST["identifiant"])==true){
@@ -351,6 +353,18 @@ function affSalonsDeDiscussions() {
     }
 
 }
+
+function generateArrayForEmail(){
+    $arrayForMailing[0]=htmlspecialchars($_POST["mail1"]);
+    $arrayForMailing[1]=htmlspecialchars($_POST["pseudo1"]);
+    return $arrayForMailing;
+}
 ?>
+
+
+
+
+
+
 
 
