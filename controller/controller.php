@@ -2,8 +2,12 @@
 
 require("../model/model.php");
 
-function test()
+function tdb()
 {
-	$message = message();
-	require("../view/test.php");
+	$status =  $_SESSION['status'];
+	
+	$breaksTime = getBreaksTime();
+	$isTime = isTimeToBreak($breaksTime);
+
+	require("../view/tdb.php");
 }
