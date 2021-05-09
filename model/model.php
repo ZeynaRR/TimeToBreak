@@ -323,6 +323,7 @@ function isTheMailAlreadyUsed(){
 	return true;
 }
 
+
 function isThePseudoAlreadyUsed(){
 	$pseudoUser=htmlspecialchars($_POST["pseudo1"]);
 	$bdd=dataBaseConnection();
@@ -337,3 +338,17 @@ function isThePseudoAlreadyUsed(){
 	}
 	return true;
 }
+
+function affSalonsDeDiscussions() {
+    for ( $i=0;$i<10;$i++) {
+        echo ("
+        <div class='exempleSalon'>
+            <div class='nomSalon'>Salon " .$i. " >  </div>
+            <div class='affMembreSalon'>Membre : TODO  </div>
+        </div>
+        ");
+    }
+
+}
+?>
+
