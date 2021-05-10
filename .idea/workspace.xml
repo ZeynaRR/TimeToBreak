@@ -29,12 +29,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ressources/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/view" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\TimeToBreak\view" />
       <recent name="C:\wamp64\www\TimeToBreak\ressources\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -50,7 +51,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1620559989230</updated>
-      <workItem from="1620559992142" duration="7224000" />
+      <workItem from="1620559992142" duration="10738000" />
+      <workItem from="1620643670167" duration="1362000" />
     </task>
     <servers />
   </component>
