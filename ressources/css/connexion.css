@@ -1,0 +1,48 @@
+.connexion {
+    border: 10px solid var(--rose);
+    width:70%;
+    margin:auto;
+    border-radius: 20px;
+    padding-left: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.connexion label {
+    color : var(--texteGris);
+    font-size: 25px;
+    font-family:"Arial Nova";
+}
+
+.connexion input[type="email"], input[type="password"], input[type="text"] {
+    background-color: var(--bgInput);
+    width: 22em;
+    height: 20px;
+    border-radius: var(--arrondiInput);
+    border: 1px solid var(--bgInput);
+}
+
+input[type="image"] {
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 420px;
+    margin-left: 15px;
+}
+
+#passwordZone {
+    display: inline;
+}
+
+#connexion {
+    width: 9em;
+    background-color: var(--rose);
+    border-radius: var(--arrondi);
+    color: white;
+    border: 1px solid transparent;
+    font-size: 17px;
+    font-weight: bold;
+    height: 2em;
+    margin-left: 350px;
+}
