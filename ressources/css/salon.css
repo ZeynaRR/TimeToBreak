@@ -1,0 +1,57 @@
+h1{
+    text-align: center;
+    color: var(--rose);
+    font-size: 70px;
+    font-weight: 400;
+}
+
+#chatBox{
+    border: 10px solid var(--rose);
+    margin: auto;
+    width: 55em;
+    height: 35em;
+    padding: 2em;
+    border-radius: var(--arrondiInput);
+}
+
+#main {
+    margin: auto;
+    width: 50%;
+}
+
+#messages{
+    overflow-y: scroll;
+    width: 55em;
+    height: 30em;
+}
+
+.myMessages{
+    margin-right: 1em;
+    margin-left: 30em;
+    float: right;
+    background-color: var(--rose);
+    color: white;
+    border-radius: 25px;
+    padding: 10px;
+}
+.othersMessages{
+    margin-right: 30em;
+    float: left;
+    background-color: darkblue;
+    color: white;
+    border-radius: 25px;
+    padding: 10px;
+}
+#sendMessage{
+    width: 60em;
+    height: 5em;
+}
+
+#messageInput{
+    width: 60em;
+    height: 5em;
+}
+#submitButton{
+    width: 5em;
+    height: 5em;
+}

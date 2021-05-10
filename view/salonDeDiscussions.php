@@ -6,7 +6,7 @@
     <meta charset = "utf-8">
     <title>Inscription</title>
     <link rel="stylesheet" type="text/css" href="../ressources/css/generalCss.css">
-    <link rel="stylesheet" type="text/css" href="../ressources/css/SalonDeDiscussion.css">
+    <link rel="stylesheet" type="text/css" href="../ressources/css/salonDeDiscussion.css">
 </head>
 
 <body>
