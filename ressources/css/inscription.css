@@ -2,16 +2,8 @@
     display:grid;
 }
 
-h1{
-    text-align: center;
-    color: var(--rose);
-    font-size: 70px;
-    font-weight: 400;
-}
 
 #inscription{
-    width: 7em;
-    margin: auto;
     background-color: var(--rose);
     border-radius: var(--arrondi);
     color: white;
@@ -27,9 +19,9 @@ label{
 
 input[type="email"],input[type="text"], input[type="password"] {
     background-color: var(--bgInput);
-    width: 22em;
     border-radius: var(--arrondiInput);
     border: 1px solid transparent;
+    width: 100%;
     
 }
 
@@ -39,9 +31,39 @@ input[type="image"] {
 }
 
 #divForm{
+    width: 45em;
     border: 10px solid var(--rose);
-    margin: auto;
-    width: 50em;
     padding: 2em;
     border-radius: var(--arrondiInput);
 }
+p.erreurs:empty, p#warning:empty{
+    display:none;
+} 
+.erreurs {
+    border: 1px solid;
+    margin: 10px auto;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    max-width: 460px;
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('https://i.imgur.com/GnyDvKN.png');
+}
+#warning {
+	color: #ffbc03;
+    font-weight: bold;
+    border: 1px solid;
+    margin: 10px auto;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    max-width: 460px;
+	background-image: url('https://i.imgur.com/Z8q7ww7.png');
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
