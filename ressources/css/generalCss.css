@@ -26,3 +26,10 @@ body {
 header {
     background-color: var(--header);
 }
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
