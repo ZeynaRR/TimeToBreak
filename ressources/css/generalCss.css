@@ -12,14 +12,17 @@
     --arrondiInput: 10px;
 }
 
-body{
+h1 {
+    text-align: center;
+    color: var(--rose);
+    font-size: 70px;
+    font-weight: 400;
+}
+
+body {
     background-color: var(--background);
 }
 
-header{
+header {
     background-color: var(--header);
-}
-
-.erreurs{
-    color: var(--erreur);
 }

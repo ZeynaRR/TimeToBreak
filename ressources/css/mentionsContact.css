@@ -1,0 +1,47 @@
+div {
+    color: var(--texteGris);
+    font-size: 20px;
+}
+
+input[type="email"],
+input[type="text"],
+select[name="objet"],
+textarea[name="Demande"] {
+    background-color: var(--bgInput);
+    width: 22em;
+    border-radius: var(--arrondiInput);
+    border: 1px solid transparent;
+}
+
+select[name="objet"],
+textarea[name="Demande"] {
+    color: var(--background);
+}
+
+
+#boutonEnvoi {
+    background-image: linear-gradient(to right, #f857a6 0%, #ff5858  51%, #f857a6  100%);
+       margin: 10px;
+       padding: 15px 45px;
+       text-align: center;
+       text-transform: uppercase;
+       transition: 0.6s;
+       background-size: 200% auto;
+       color: white;            
+       box-shadow: 0 0 2px #eee;
+       border-radius: 10px;
+     }
+
+     #boutonEnvoi:hover {
+       background-position: right center; /* change the direction of the change here */
+       color: #fff;
+       text-decoration: none;
+     }
+
+
+
+input[type="submit"]:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
