@@ -1,22 +1,63 @@
-body{
+body {
 	background: #4A707C;
 }
-h1{
-	text-align:center;
-	color:#DF7878;
+
+h1 {
+	text-align: center;
+	color: #DF7878;
 }
-section{
-	padding:20px;
-	border:10px #DF7878 solid;
-	border-radius:40px;
-	width:100%;
-	height:500px;/*to be update*/
+
+section {
+	padding: 20px;
+	border: 10px #DF7878 solid;
+	border-radius: 40px;
+	width: 100%;
+	height: 500px;
+	/*to be update*/
 }
-table
-{
-    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+
+table {
+	border-collapse: collapse;
+	background: var(--header);
+	/* Les bordures du tableau seront collées (plus joli) */
 }
-td,th
-{
-    border: 1px solid black;
+
+.table-responsive{
+	margin-top: 2em;
+}
+
+thead{
+	background-color: var(--rose);
+	border-radius:2em;
+}
+
+td,
+th {
+	border: 1px solid black;
+}
+
+
+
+a{
+	color: white;
+}
+
+#updateBreak{
+	padding-right: 2em;
+}
+
+#addBreak {
+	border: var(--rose);
+	margin: 10px;
+	padding: 15px 45px;
+	text-align: center;
+	background-size: 15%;
+	color: white;
+	border-radius: 10px;
+	background-color: var(--rose);
+	background-image: url(../images/plus.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	text-decoration: none;
+
 }
