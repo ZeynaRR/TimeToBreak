@@ -1,88 +1,103 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
-  <meta charset="utf-8">
-  <title>Titre de la page</title>
-  <link rel="stylesheet" href="../ressources/css/interfaceListingPause.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
+	<title>Mes pauses</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="../ressources/css/generalCss.css">
+	<link rel="stylesheet" href="../ressources/css/interfaceListingPause.css">
+	<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+	<link rel="manifest" href="../site.webmanifest">
+	<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
 </head>
+
 <body>
 	<h1>Mes pauses:</h1>
-	<section>
-		<a href="interfaceSavingPause.php">Ajouter une pause</a>
-		<table>
-			<thead>
-				<tr>
-					<th>
-						Début de la pause
-					</th>
-					<th>
-						Fin de la pause
-					</th>
-					<th>
-						Nom de la pause
-					</th>
-					<th>
-						Date derniere modification de la pause
-					</th>
-					<th>
-						Modifier
-					</th>
-					<th>
-						Supprimer ma pause
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				
-				<?php
-					selectMyPauseFromDataBaseAndDisplayIt()
-				?>
-			</tbody>
-		</table>
+	<section class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<a href="interfaceSavingPause.php" id="addBreak"> Ajouter une pause</a>
+			</div>
+			<br> <br>
+			<div class="col-sm-12 table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>
+								Début de la pause
+							</th>
+							<th>
+								Fin de la pause
+							</th>
+							<th>
+								Nom de la pause
+							</th>
+							<th>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<?php
+						selectMyPauseFromDataBaseAndDisplayIt()
+						?>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</section>
 </body>
+
 </html>
 <?php
-	function dataBaseConnection(){
-		$bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', '');
-		return $bdd;
-	}
-	
-	function selectMyPauseFromDataBaseAndDisplayIt(){
-		$bdd = dataBaseConnection();
-		$request = $bdd->prepare('SELECT * FROM break');
-		$request->execute(array());
-		while($data=$request->fetch()){
-			?>
-			<tr>
-				<td>
-				<?php
-					echo $data["datetimeBeginBreak"];
-				?>
-				</td>
-				<td>
-				<?php
-					echo $data["datetimeEndBreak"];
-				?>
-				</td>
-				<td>
-				<?php
-					echo $data["nameOfTheBreak"];
-				?>
-				</td>
-				<td>
-				<?php
-					echo $data["datetimeLastUpdate"];
-				?>
-				</td>
-				<td>
-					<a href="interfaceUpdatingPause.php?idBreak=<?php echo $data["idBreak"];?>">Modifier ma pause</a>
-				</td>
-				<td>
-					<a href="interfaceDeletingPause.php?idBreak=<?php echo $data["idBreak"];?>">Supprimer ma pause</a>
-				</td>
-			</tr>
-			<?php
-		}
-	}
+function dataBaseConnection()
+{
+	$bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', '');
+	return $bdd;
+}
+
+function selectMyPauseFromDataBaseAndDisplayIt()
+{
+	$bdd = dataBaseConnection();
+	$request = $bdd->prepare('SELECT * FROM break');
+	$request->execute(array());
+	while ($data = $request->fetch()) {
 ?>
+		<tr>
+			<td>
+				<?php
+				echo $data["datetimeBeginBreak"];
+				?>
+			</td>
+			<td>
+				<?php
+				echo $data["datetimeEndBreak"];
+				?>
+			</td>
+			<td>
+				<?php
+				echo $data["nameOfTheBreak"];
+				?>
+			</td>
+			<td>
+				<a class="fas fa-edit" id="updateBreak" href="interfaceUpdatingPause.php?idBreak=<?php echo $data["idBreak"]; ?>"></a>
+				<a class="far fa-trash-alt" href="interfaceDeletingPause.php?idBreak=<?php echo $data["idBreak"]; ?>"></a>
+			</td>
+		</tr>
+<?php
+	}
+}
+?>
+<footer></footer>
+<script type="text/javascript" src="../ressources/js/inscription.js">
+</script>
+</body>
+
+</html>

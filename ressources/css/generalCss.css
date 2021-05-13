@@ -12,11 +12,18 @@
     --arrondiInput: 10px;
 }
 
-body{
+h1 {
+    text-align: center;
+    color: var(--rose);
+    font-size: 70px;
+    font-weight: 400;
+}
+
+body {
     background-color: var(--background);
 }
 
-header{
+header {
     background-color: var(--header);
     position:absolute;
     top:0px;
@@ -32,9 +39,8 @@ h1 {
     font-size: 70px;
     margin-top:70px;
 }
-
-.erreurs{
-    color: var(--rose);
-    font-family: "Arial Nova";
-    font-size: 15px;
-}
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
