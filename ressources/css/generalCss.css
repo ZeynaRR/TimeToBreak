@@ -5,7 +5,7 @@
     --rose: #DF7878;
     --texteGris: #BDBDBD;
     --bgInput: #E0EAFF;
-    --erreur: red;
+    /*--erreur: ;*/
 
     /*formes*/
     --arrondi: 4px;
@@ -25,11 +25,22 @@ body {
 
 header {
     background-color: var(--header);
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:10%;
 }
 
+h1 {
+    text-align: center;
+    color: var(--rose);
+    font-family: "Arial Nova";
+    font-size: 70px;
+    margin-top:70px;
+}
 .centered {
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
