@@ -15,6 +15,12 @@ try
 			case 'tdb':
 				tdb();
 			break;
+			case 'ban':
+				ban();
+			break;
+			case 'ban_user':
+				ban_user();
+			break;
 		}
 	}
 }
