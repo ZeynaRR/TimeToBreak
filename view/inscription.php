@@ -22,19 +22,19 @@
         <div class="row text-center">
             <h1> Inscription </h1>
 
-            <form id='form' method="post" action=".php" onsubmit="return valideFormulaire(this)">
+            <form id='form' method="post" action="../controller/interfaceInscriptionController.php" onsubmit="return valideFormulaire(this)">
 
                 <label>Adresse mail</label>
                 <div class="form-group centered">
                     <div class="col-xs-6">
-                        <input type="email" name='mail'>
+                        <input type="email" name='mail' required>
                     </div>
                 </div>
 
                 <label>Pseudo</label>
                 <div class="form-group centered">
                     <div class="col-xs-6">
-                        <input type="text" name='pseudo'>
+                        <input type="text" name='pseudo' required>
                     </div>
                 </div>
 
@@ -42,13 +42,13 @@
                 <label>Mot de passe</label>
                 <div class="form-group centered">
                     <div class="col-xs-6">
-                        <input type="password" name="motdepasse" placeholder="Saisissez le mot de passe" id="motdepasse" onkeyup="motDePasseConforme(this.form)">
+                        <input type="password" name="motdepasse" placeholder="Saisissez le mot de passe" id="motdepasse" onkeyup="motDePasseConforme(this.form)" required>
                     </div>
                 </div>
                 <label>Confirmation du mot de passe</label>
                 <div class="form-group centered">
                     <div class="col-xs-6">
-                        <input type="password" name="motdepasse2" placeholder="Confirmez le mot de passe" id="motdepasse2" onblur="motDePasseCorrespondant(this.form)">
+                        <input type="password" name="motdepasse2" placeholder="Confirmez le mot de passe" id="motdepasse2" onblur="motDePasseCorrespondant(this.form)" required>
                     </div>
                 </div>
                 <div class="form-group centered"> <input type="image" src="../ressources/images/mdp.png" id="masque" title="Masquer/demasquer le mot de passe pour vérifier" onclick="affichageMotDePasse();return false;"> </div>
