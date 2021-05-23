@@ -1,6 +1,7 @@
 <?php
 
 require("../controller/controller.php");
+require("../controller/connexionController.php");
 
 try
 {
@@ -11,10 +12,14 @@ try
 			case 'test':
 				test();
 			break;
+            case 'connection':
+                connection();
+                break;
+            case 'connect':
+                connect();
+                break;
 		}
 	}
-	
-		
 }
 catch (Exception $e)
 {

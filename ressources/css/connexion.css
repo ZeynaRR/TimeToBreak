@@ -44,5 +44,39 @@ input[type="image"] {
     font-size: 17px;
     font-weight: bold;
     height: 2em;
-    margin-left: 350px;
+    margin-left: 340px;
+}
+
+.errors {
+    border: 1px solid;
+    font-family: "Arial Nova";
+    text-align: justify;
+    margin-left: 155px;
+    margin-bottom: 20px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    max-width: 460px;
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('https://i.imgur.com/GnyDvKN.png');
+}
+
+.errors:empty {
+    display:none;
+}
+
+.errorAuthentication {
+    border: 1px solid;
+    font-family: "Arial Nova";
+    text-align: justify;
+    margin-left: 155px;
+    margin-bottom: 20px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    max-width: 460px;
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('https://i.imgur.com/GnyDvKN.png');
 }

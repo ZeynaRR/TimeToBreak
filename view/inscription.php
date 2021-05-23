@@ -1,3 +1,6 @@
+<?php
+    setcookie('page', 'inscription', time() + 365 * 24 * 3600, null, null, false, true);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -18,6 +21,7 @@
 </head>
 
 <body>
+    <?php include("header.php"); ?>
     <div id="divForm" class="container">
         <div class="row text-center">
             <h1> Inscription </h1>
