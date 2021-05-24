@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>Titre de la page</title>
-  <!--<link rel="stylesheet" href="../ressources/style.css">-->
 </head>
 <body>
 <?php
@@ -60,12 +59,13 @@
 		$mailUser=htmlspecialchars($_POST["mail"]);
 		$passwordUser=htmlspecialchars($_POST["motdepasse"]);
 		
+		$hashedPassword=$res=password_hash($passwordUser,PASSWORD_DEFAULT);
 		
 		$request = $bdd->prepare('INSERT INTO user (pseudoUser,mailUser,passwordUser,credentialUser) VALUES (:pseudoUser,:mailUser,:passwordUser,:credentialUser)');
 		$request->execute(array(
 			'pseudoUser'=>$pseudoUser,
 			'mailUser' => $mailUser,
-			'passwordUser' => sha1($passwordUser),
+			'passwordUser' => $hashedPassword,
 			'credentialUser' =>1,
 		));
 		echo 'Insere !';
