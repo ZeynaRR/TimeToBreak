@@ -1,0 +1,63 @@
+#form{
+    display:grid;
+}
+
+
+#inscription{
+    background-color: var(--rose);
+    border-radius: var(--arrondi);
+    color: white;
+    border: 1px solid transparent;
+    font-size: 15px;
+    height: 2em;
+}
+
+label{
+    color: var(--texteGris);
+    font-size: 20px;
+}
+
+input[type="email"],input[type="text"], input[type="password"] {
+    background-color: var(--bgInput);
+    border-radius: var(--arrondiInput);
+    border: 1px solid transparent;
+    width: 100%;
+    
+}
+
+input[type="image"] {
+    background-color: transparent;
+    width:3em;
+}
+
+#divForm{
+    width: 45em;
+    border: 10px solid var(--rose);
+    padding: 2em;
+    border-radius: var(--arrondiInput);
+}
+p.erreurs:empty, p#warning:empty{
+    display:none;
+} 
+.erreurs {
+    border: 1px solid;
+    margin: 10px auto;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    max-width: 460px;
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('https://i.imgur.com/GnyDvKN.png');
+}
+#warning {
+	color: #ffbc03;
+    font-weight: bold;
+    border: 1px solid;
+    margin: 10px auto;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    max-width: 460px;
+	background-image: url('https://i.imgur.com/Z8q7ww7.png');
+}
