@@ -1,0 +1,65 @@
+body
+{
+	background-color: #4a707c;
+}
+
+#main_title
+{
+	color: #df7878;
+	text-align: center;
+	font-size: 90px;
+	margin: 2%;
+}
+
+.contain
+{
+	width: 80%; 
+	margin: auto;
+}
+
+li[class=""] a
+{
+	color: white;
+}
+
+li[class=""] a:hover
+{
+	color: #4a707c;
+}
+
+.contain h4
+{
+	margin-bottom: 1%;
+	margin-top: 1%;
+	color: white;
+}
+
+table
+{
+	width: 100%;
+}
+
+td
+{	
+	width: 33%;
+	text-align: center;
+	padding: 0.5%;
+}
+
+td#pseudo
+{
+	font-weight: bold;
+}
+
+
+tr:nth-child(even) 
+{
+	background-color: #dddddd;
+	color: #df8686;
+}
+
+tr:nth-child(odd) 
+{
+	background-color: #df8686;
+	color: #dddddd;
+}

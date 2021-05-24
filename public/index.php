@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+
+$_SESSION['status'] = "admin";
+
 require("../controller/controller.php");
 
 try
@@ -8,8 +12,14 @@ try
 		$action = htmlspecialchars($_GET['action']);
 		switch($action)
 		{
-			case 'test':
-				test();
+			case 'tdb':
+				tdb();
+			break;
+			case 'ban':
+				ban();
+			break;
+			case 'ban_user':
+				ban_user();
 			break;
 		}
 	}

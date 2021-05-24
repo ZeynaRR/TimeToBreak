@@ -1,0 +1,29 @@
+
+
+label{
+    color: var(--texteGris);
+    font-size: 20px;
+}
+
+input[type="date"],input[type="time"], input[type="text"] {
+    background-color: var(--bgInput);
+    border-radius: var(--arrondiInput);
+    border: 1px solid transparent;
+    width: 100%;
+    
+}
+#divFormEnregistrement{
+    width: 70em;
+    border: 10px solid var(--rose);
+    padding: 2em;
+    border-radius: var(--arrondiInput);
+}
+
+#enregistrement{
+    background-color: var(--rose);
+    border-radius: var(--arrondi);
+    color: white;
+    border: 1px solid transparent;
+    font-size: 15px;
+    height: 2em;
+}
