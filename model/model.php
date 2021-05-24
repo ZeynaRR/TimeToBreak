@@ -339,6 +339,7 @@ function isThePseudoAlreadyUsed(){
 	return true;
 }
 
+
 function affSalonsDeDiscussions() {
     for ( $i=0;$i<10;$i++) {
         echo ("
@@ -351,4 +352,5 @@ function affSalonsDeDiscussions() {
 
 }
 ?>
+
 

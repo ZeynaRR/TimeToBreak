@@ -28,6 +28,7 @@ h1{
 .myMessages{
     margin-right: 1em;
     margin-left: 30em;
+    margin-bottom: 1em;
     float: right;
     background-color: var(--rose);
     color: white;
@@ -36,12 +37,16 @@ h1{
 }
 .othersMessages{
     margin-right: 30em;
+    margin-bottom: 1em;
     float: left;
     background-color: darkblue;
     color: white;
     border-radius: 25px;
     padding: 10px;
 }
+.pseudo{
+     color: black;
+ }
 #sendMessage{
     width: 60em;
     height: 5em;

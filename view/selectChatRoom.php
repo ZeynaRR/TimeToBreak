@@ -1,4 +1,4 @@
-<?php include "../model/model.php"?>
+<?php include "../model/modelChatRoom.php"?>
 
 <!DOCTYPE html>
 <html>
@@ -6,7 +6,7 @@
     <meta charset = "utf-8">
     <title>Inscription</title>
     <link rel="stylesheet" type="text/css" href="../ressources/css/generalCss.css">
-    <link rel="stylesheet" type="text/css" href="../ressources/css/salonDeDiscussion.css">
+    <link rel="stylesheet" type="text/css" href="../ressources/css/selectChatRoom.css">
 </head>
 
 <body>
