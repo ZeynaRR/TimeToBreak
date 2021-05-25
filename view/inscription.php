@@ -15,26 +15,60 @@
 	<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+		<script>
+		$(document).ready(function(){
+		 $("#inscription").click(function(){
+		 event.preventDefault();
+		
+		 var mail=$("#mail").val();
+		 var pseudo=$("#pseudo").val();
+		 var password_1=$("#motdepasse").val();
+		 var password_2=$("#motdepasse2").val();
+		 var accept=$("#accept").val();
+		 $.post( "../controller/interfaceInscriptionController.php",
+		 {
+		 mail1:mail,
+		 pseudo1:pseudo,
+		 password1:password_1,
+		 password2:password_2,
+		 accept1:accept,
+		 },
+		 function( data ) {
+		 if(data==0){
+			 //The user haven't been inserted
+			alert("Oups une erreur est survenue!");
+
+			}
+		 if(data==1){
+			 //The user have been inserted
+			 alert("Felicitation !!! Vous avez bien ete inscrit");
+			 $(location).attr('href',"http://127.0.0.1/timetobreak/view/connexion.php");
+
+		 }
+		 }
+		 );
+		 });
+		});
+		</script>
 </head>
 
 <body>
     <div id="divForm" class="container">
         <div class="row text-center">
             <h1> Inscription </h1>
-
-            <form id='form' method="post" action="../controller/interfaceInscriptionController.php" onsubmit="return valideFormulaire(this)">
-
+            <form id='form' method="post" onsubmit="return valideFormulaire(this)">
                 <label>Adresse mail</label>
                 <div class="form-group centered">
                     <div class="col-xs-6">
-                        <input type="email" name='mail' required>
+                        <input type="email" name='mail' id="mail" required>
                     </div>
                 </div>
 
                 <label>Pseudo</label>
                 <div class="form-group centered">
                     <div class="col-xs-6">
-                        <input type="text" name='pseudo' required>
+                        <input type="text" name='pseudo' id="pseudo" required>
                     </div>
                 </div>
 
@@ -61,7 +95,6 @@
                     <input type="checkbox" id="accept" name="accept">
                     <label for="accept">J'accepte les conditions générales</label>
                 </div>
-                <br>
                 <div class="form-group centered">
                     <div class="col-xs-6">
                         <input id="inscription" type="submit" value="S'inscrire >">
@@ -74,5 +107,4 @@
     <script type="text/javascript" src="../ressources/js/inscription.js">
     </script>
 </body>
-
 </html>
