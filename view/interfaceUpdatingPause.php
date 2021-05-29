@@ -17,8 +17,46 @@
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
 </head>
-
 <body>
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+		<script>
+		$(document).ready(function(){
+		 $("#enregistrement").click(function(){
+		 event.preventDefault();
+		
+		 var dateOfTheBreak=$("#dateOfTheBreak").val();
+		 var beginOfTheBreak=$("#beginOfTheBreak").val();
+		 var endOfTheBreak=$("#endOfTheBreak").val();
+		 var nameOfTheBreak=$("#nameOfTheBreak").val();
+		 
+		 var currentUrl = window.location.href;
+		 var url = new URL(currentUrl);
+		 var idBreak = url.searchParams.get("idBreak");
+		 
+		 addressController="../controller/interfaceUpdatingPauseController.php?idBreak="+idBreak;
+		 $.post(addressController ,
+		 {
+		 dateOfTheBreak1:dateOfTheBreak,
+		 beginOfTheBreak1:beginOfTheBreak,
+		 endOfTheBreak1:endOfTheBreak,
+		 nameOfTheBreak1:nameOfTheBreak,
+		 },
+		 function( data ) {
+		 if(data==0){
+			 //The break haven't been updated
+			alert("Oups une erreur est survenue!");
+
+			}
+		 if(data==1){
+			 //The break have been updated
+			 alert("Modification prise en compte");
+			 $(location).attr('href',"interfaceListingPause.php");
+		 }
+		 }
+		 );
+		 });
+		});
+		</script>
 	<!--include a menue-->
 	<!--include a header-->
 	<div id="divFormEnregistrement" class="container">
@@ -50,7 +88,7 @@ function displayTheCorrepondingBreak()
 	$request->execute(array($idBreak));
 	$data = $request->fetch();
 ?>
-	<form action="../controller/interfaceUpdatingPauseController.php?idBreak=<?php echo $idBreak; ?>" method="post">
+	<form method="post">
 		<label for="dateOfTheBreak">Date pause</label>
 		<div class="form-group centered">
 			<div class="col-xs-6">

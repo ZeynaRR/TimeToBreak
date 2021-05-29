@@ -43,7 +43,7 @@
 		 if(data==1){
 			 //The user have been inserted
 			 alert("Felicitation !!! Vous avez bien ete inscrit");
-			 $(location).attr('href',"http://127.0.0.1/timetobreak/view/connexion.php");
+			 $(location).attr('href',"connexion.php");
 
 		 }
 		 }

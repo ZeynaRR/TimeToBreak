@@ -17,8 +17,18 @@
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
 </head>
-
 <body>
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<script>
+		function deleteByIdBreak(value){
+			event.preventDefault();
+			var pauseToDelete=confirm('Attention! Voulez-vous vraiment supprimer cette pause');
+			if(pauseToDelete){
+				var addressToDelete="../controller/interfaceDeletingPauseController.php?idBreak="+value;
+				$(location).attr('href',addressToDelete);
+			}
+		}
+	</script>
 	<h1>Mes pauses:</h1>
 	<section class="container">
 		<div class="row">
@@ -88,7 +98,7 @@ function selectMyPauseFromDataBaseAndDisplayIt()
 			</td>
 			<td>
 				<a class="fas fa-edit" id="updateBreak" href="interfaceUpdatingPause.php?idBreak=<?php echo $data["idBreak"]; ?>"></a>
-				<a class="far fa-trash-alt" href="interfaceDeletingPause.php?idBreak=<?php echo $data["idBreak"]; ?>"></a>
+				<a class="far fa-trash-alt" id="deleteBreak" href="" onclick="deleteByIdBreak(<?php echo $data["idBreak"]; ?>)"></a>
 			</td>
 		</tr>
 <?php
