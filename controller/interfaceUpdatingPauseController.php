@@ -1,39 +1,24 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Titre de la page</title>
-  <!--<link rel="stylesheet" href="../ressources/style.css">-->
-</head>
-<body>
 <?php
-	controllerInterfaceUpdatingPause();
-	echo date("Y-m-d H:i:s");
-?>
-</body>
-</html>
-
-<?php
-
-	
-	function controllerInterfaceUpdatingPause(){
-		if(isDataCorrectForInterfaceUpdatingPause()){
-			updateDatabaseBreak();
-		}
-		else{
-			echo "redirection a faire";
-		}
+	$var=isDataCorrectForInterfaceUpdatingPause();
+	if($var==true){
+		updateDatabaseBreak();
+		echo 1;//The user have been inserted: we return 1
 	}
+	else{
+		echo 0;//The user haven't been inserted: we return 0
+	}
+?>
+<?php
 	
 	function isDataCorrectForInterfaceUpdatingPause(){
 		$isDataCorrectForInterfaceUpdatingPause=true;
-		if(isset($_POST["dateOfTheBreak"])==false || empty($_POST["dateOfTheBreak"])==true){
+		if(isset($_POST["dateOfTheBreak1"])==false || empty($_POST["dateOfTheBreak1"])==true){
 			$isDataCorrectForInterfaceUpdatingPause=false;
 		}
-		if(isset($_POST["beginOfTheBreak"])==false || empty($_POST["beginOfTheBreak"])==true){
+		if(isset($_POST["beginOfTheBreak1"])==false || empty($_POST["beginOfTheBreak1"])==true){
 			$isDataCorrectForInterfaceUpdatingPause=false;
 		}
-		if(isset($_POST["endOfTheBreak"])==false || empty($_POST["endOfTheBreak"])==true){
+		if(isset($_POST["endOfTheBreak1"])==false || empty($_POST["endOfTheBreak1"])==true){
 			$isDataCorrectForInterfaceUpdatingPause=false;
 		}
 		return $isDataCorrectForInterfaceUpdatingPause;
@@ -46,13 +31,13 @@
 	
 	function updateDatabaseBreak(){
 		$bdd = dataBaseConnection();
-		$datetimeBeginBreak=htmlspecialchars($_POST["dateOfTheBreak"]).' '.htmlspecialchars($_POST["beginOfTheBreak"]);
-		$datetimeEndBreak=htmlspecialchars($_POST["dateOfTheBreak"]).' '.htmlspecialchars($_POST["endOfTheBreak"]);
+		$datetimeBeginBreak=htmlspecialchars($_POST["dateOfTheBreak1"]).' '.htmlspecialchars($_POST["beginOfTheBreak1"]);
+		$datetimeEndBreak=htmlspecialchars($_POST["dateOfTheBreak1"]).' '.htmlspecialchars($_POST["endOfTheBreak1"]);
 		$datetimeLastUpdate=''.date("Y-m-d H:i:s");
 		
 		$nameOfTheBreak="";
-		if(isset($_POST["nameOfTheBreak"])==true && !(empty($_POST["nameOfTheBreak"]))){
-			$nameOfTheBreak=htmlspecialchars($_POST["nameOfTheBreak"]);
+		if(isset($_POST["nameOfTheBreak1"])==true && !(empty($_POST["nameOfTheBreak1"]))){
+			$nameOfTheBreak=htmlspecialchars($_POST["nameOfTheBreak1"]);
 		}			
 		
 		$request = $bdd->prepare('UPDATE break SET idUser=:newIdUser, datetimeBeginBreak=:newDatetimeBeginBreak, datetimeEndBreak=:newDatetimeEndBreak, datetimeLastUpdate=:newDatetimeEndBreak, nameOfTheBreak=:newNameOfTheBreak WHERE idBreak='.htmlspecialchars($_GET['idBreak']));
@@ -63,7 +48,6 @@
 			'newDatetimeLastUpdate' =>$datetimeLastUpdate,
 			'newNameOfTheBreak'=>$nameOfTheBreak,
 		));
-		echo 'Modifie !';
 	}
 	
 ?>
