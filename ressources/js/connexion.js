@@ -35,7 +35,7 @@ function hide() {
 }*/
 
 function displayPassword() {
-    var mdp = document.getElementById('motdepasse');
+    var mdp = document.getElementById('password');
     if (mdp.getAttribute("type") == "password") {
         mdp.setAttribute('type', 'text');
     } else {
@@ -44,18 +44,16 @@ function displayPassword() {
 }
 
 function areAllFieldsCompleted() {
-    var isComplete = true;
     var text = "";
-    var password = document.getElementById("motdepasse").value;
+    var password = document.getElementById("password").value;
     var login = document.getElementById("login").value;
-    event.preventDefault();
+    //event.preventDefault();
     if (!login) {
-        text += "Vous devez renseigner votre login. Il s'agit de l'adresse mail renseignée lors de votre inscription" + "\n" + "\n";
-        isComplete = false;
+        text += "Vous devez renseigner votre adresse mail, il s'agit de celle renseignée lors de votre inscription" + "<br>" + "<br>";
     }
     if (!password) {
         text += "Vous devez renseigner votre mot de passe.";
-        isComplete = false;
     }
-    alert(text);
+    document.getElementById('erreurs').innerHTML = text;
+    return (text.length === 0);
 }

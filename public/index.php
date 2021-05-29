@@ -5,6 +5,7 @@ session_start();
 $_SESSION['status'] = "admin";
 
 require("../controller/controller.php");
+require("../controller/connexionController.php");
 
 try
 {
@@ -21,10 +22,14 @@ try
 			case 'ban_user':
 				ban_user();
 			break;
+            case 'connection':
+                connection();
+                break;
+            case 'connect':
+                connect();
+                break;
 		}
 	}
-	
-		
 }
 catch (Exception $e)
 {
