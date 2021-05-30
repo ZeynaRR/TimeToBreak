@@ -11,11 +11,11 @@
         <div class="header">
             <img class="logoTTB" src="../ressources/images/logoTTB2.png" alt="logoTTB"/>
 
-            <a href="tdb.php"><img class="logoHome" src="../ressources/images/logoHome2.png" alt="logoHome"/></a>
+            <a href="?action=tdb"><img class="logoHome" src="../ressources/images/logoHome2.png" alt="logoHome"/></a>
 
             <?php if(isset($_SESSION['mail'])) { ?>
                 <img class="logoDisconnection" src="../ressources/images/logoDisconnection.png" alt="logoHome"/>
-                <a class="disconnection" href="?action=connection" style="text-decoration: none">Déconnexion <?php session_destroy() ?></a>
+                <a class="disconnection" href="?action=connection" style="text-decoration: none">Déconnexion</a>
             <?php }
             else {
                 if(isset($_COOKIE['page']) && $_COOKIE['page'] == 'inscription') { ?>

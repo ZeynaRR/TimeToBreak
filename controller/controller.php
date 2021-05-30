@@ -4,18 +4,25 @@ require("../model/model.php");
 
 function tdb()
 {
-	$status =  $_SESSION['status'];
-	
-	$breaksTime = getBreaksTime();
-	$isTime = isTimeToBreak($breaksTime);
 
-	require("../view/tdb.php");
+	if(isset($_SESSION['status'])){
+		$status = $_SESSION['status'];
+		$breaksTime = getBreaksTime();
+		$isTime = isTimeToBreak($breaksTime);
+
+		require("../view/tdb.php");
+	}
+	else
+	{
+		var_dump($_SESSION);
+		throw new Exception('Access Denied');
+	}
 }
 
 function ban()
 {
 	$status =  $_SESSION['status'];
-	if(isAllowed($status, array("modo","admin")))
+	if(isAllowed($status, array("2","3")))
 	{
 		$users = getUsers();
 		$modos = getModos();

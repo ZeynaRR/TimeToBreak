@@ -25,7 +25,7 @@
 
 		<ul class="nav nav-tabs">  
 		    <li class="active"><a data-toggle="tab" href="#users">Utilisateurs</a></li>  
-		    <?php if(isAllowed($status,array("admin"))){ ?><li class=""><a data-toggle="tab" href="#modos">Modérateurs</a></li> <?php }?>
+		    <?php if(isAllowed($status,array("3"))){ ?><li class=""><a data-toggle="tab" href="#modos">Modérateurs</a></li> <?php }?>
 		</ul>
 
 		<div class="tab-content">
@@ -43,7 +43,7 @@
 				</table>
 			</div>
 
-			<?php if(isAllowed($status,array("admin"))){ ?>
+			<?php if(isAllowed($status,array("3"))){ ?>
 				<div id="modos" class="tab-pane fade">  
 			    	<h4>Modérateurs</h4>
 					<table>

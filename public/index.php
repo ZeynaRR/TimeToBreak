@@ -2,8 +2,6 @@
 
 session_start();
 
-$_SESSION['status'] = "admin";
-
 require("../controller/controller.php");
 require("../controller/connexionController.php");
 
