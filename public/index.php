@@ -35,6 +35,12 @@ try
             case 'breakList':
                 breakList();
             break;
+			case 'inscription':
+				inscription();
+			break;
+			case 'updateBreak';
+				updateBreak();
+			break;
 		}
 	}
 }

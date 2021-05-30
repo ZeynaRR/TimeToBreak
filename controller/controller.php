@@ -59,3 +59,20 @@ function breakList()
 {
 	require("../view/interfaceListingPause.php");
 }
+
+function inscription()
+{
+	require("../view/inscription.php");
+}
+
+function interfaceListingPause()
+{
+	require("../view/interfaceListingPause.php");
+}
+
+function updateBreak()
+{
+	$idBreak = htmlspecialchars($_GET['idBreak']);
+	$adressToGo='Location:../view/interfaceUpdatingPause.php?idBreak='.$idBreak;
+	header($adressToGo);
+}
