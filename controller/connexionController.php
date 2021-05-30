@@ -1,8 +1,10 @@
 <?php
+/*
 function dataBaseConnection(){
     $bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', '');
     return $bdd;
 }
+*/
 require("../model/connexionModel.php");
 
 function validateAuthentication()

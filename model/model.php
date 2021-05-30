@@ -2,6 +2,13 @@
 
 require("../model/db_connect.php");
 
+//-----------------------------------------------------
+function dataBaseConnection(){
+	$bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', '');
+	return $bdd;
+}
+
+//-----------------------------------------------------
 function getBreaksTime()
 {
 	$breaksTime = [['begin' => date("2021-05-04 01:24:32"),'end' => date("2021-05-04 03:30:00")], ['begin' => date("2021-05-07 01:24:32"),'end' => date("2021-05-11 03:30:00")]];
@@ -62,4 +69,142 @@ function banUser($id)
 	$bdd = dbConnect();
 	$req = $bdd->prepare('UPDATE user SET Ban = TRUE WHERE idUser = ?');
 	$req->execute(array($id));
+}
+
+
+//-----------------------------------------------------
+
+function isDataCorrectForInscription(){
+	$isItDataCorrectForInscription=true;
+	if(isset($_POST["pseudo1"])==false || empty($_POST["pseudo1"])==true){
+		$isItDataCorrectForInscription=false;
+	}
+	if(isset($_POST["mail1"])==false || empty($_POST["mail1"])==true){
+		$isItDataCorrectForInscription=false;
+	}
+	if(isset($_POST["password1"])==false || empty($_POST["password1"])==true){
+		$isItDataCorrectForInscription=false;
+	}
+	if(isset($_POST["password2"])==false || empty($_POST["password2"])==true){
+		$isItDataCorrectForInscription=false;
+	}
+	if(isset($_POST["accept1"])==false || empty($_POST["accept1"])==true){
+		$isItDataCorrectForInscription=false;
+	}
+	if($_POST["password1"]!=$_POST["password1"]){
+		$isItDataCorrectForInscription=false;
+	}
+	return $isItDataCorrectForInscription;
+}
+	
+function insertUserInTheDatabase(){
+	$bdd = dataBaseConnection();
+	$pseudoUser=htmlspecialchars($_POST["pseudo1"]);
+	$mailUser=htmlspecialchars($_POST["mail1"]);
+	$passwordUser=htmlspecialchars($_POST["password1"]);
+		
+	$hashedPassword=$res=password_hash($passwordUser,PASSWORD_DEFAULT);
+		
+	$request = $bdd->prepare('INSERT INTO user (pseudoUser,mailUser,passwordUser,credentialUser) VALUES (:pseudoUser,:mailUser,:passwordUser,:credentialUser)');
+	$request->execute(array(
+		'pseudoUser'=>$pseudoUser,
+		'mailUser' => $mailUser,
+		'passwordUser' => $hashedPassword,
+		'credentialUser' =>1,
+	));
+}
+
+
+//-----------------------------------------------------
+function deleteById(){
+	$bdd = dataBaseConnection();
+	$idBreak=htmlspecialchars($_GET['idBreak']);
+	$request = $bdd->prepare('DELETE FROM break WHERE idBreak=?');
+	$request->execute(array($idBreak));
+	header('Location:../public/index.php?action=breakList');
+}
+
+//-----------------------------------------------------
+function controllerInterfaceSavingPause(){
+	if(isDataCorrectForInterfaceSavingPause()){
+		insertIntoDatabaseNewBreak();
+	}
+	else{
+		header('Location:../public/index.php?action=createBreak');
+	}
+}
+	
+function isDataCorrectForInterfaceSavingPause(){
+	$isDataCorrectForInterfaceSavingPause=true;
+	if(isset($_POST["dateOfTheBreak"])==false || empty($_POST["dateOfTheBreak"])==true){
+		$isDataCorrectForInterfaceSavingPause=false;
+	}
+	if(isset($_POST["beginOfTheBreak"])==false || empty($_POST["beginOfTheBreak"])==true){
+		$isDataCorrectForInterfaceSavingPause=false;
+	}
+	if(isset($_POST["endOfTheBreak"])==false || empty($_POST["endOfTheBreak"])==true){
+		$isDataCorrectForInterfaceSavingPause=false;
+	}
+	return $isDataCorrectForInterfaceSavingPause;
+}
+	
+	
+function insertIntoDatabaseNewBreak(){
+	$bdd = dataBaseConnection();
+	$datetimeBeginBreak=htmlspecialchars($_POST["dateOfTheBreak"]).' '.htmlspecialchars($_POST["beginOfTheBreak"]);
+	$datetimeEndBreak=htmlspecialchars($_POST["dateOfTheBreak"]).' '.htmlspecialchars($_POST["endOfTheBreak"]);
+	$datetimeLastUpdate=''.date("Y-m-d H:i:s");
+	
+	$nameOfTheBreak="";
+	if(isset($_POST["nameOfTheBreak"])==true && !(empty($_POST["nameOfTheBreak"]))){
+		$nameOfTheBreak=htmlspecialchars($_POST["nameOfTheBreak"]);
+	}			
+	
+	$req = $bdd->prepare('INSERT INTO break(idUser, datetimeBeginBreak, datetimeEndBreak, datetimeLastUpdate, nameOfTheBreak) VALUES(:idUser, :datetimeBeginBreak, :datetimeEndBreak, :datetimeLastUpdate, :nameOfTheBreak)');
+	$req->execute(array(
+		'idUser'=>118218,
+		'datetimeBeginBreak' => $datetimeBeginBreak,
+		'datetimeEndBreak' => $datetimeEndBreak,
+		'datetimeLastUpdate' =>$datetimeLastUpdate,
+		'nameOfTheBreak'=>$nameOfTheBreak,
+	));
+	header('Location:../public/index.php?action=breakList');
+}
+
+//-----------------------------------------------------
+function isDataCorrectForInterfaceUpdatingPause(){
+	$isDataCorrectForInterfaceUpdatingPause=true;
+	if(isset($_POST["dateOfTheBreak1"])==false || empty($_POST["dateOfTheBreak1"])==true){
+		$isDataCorrectForInterfaceUpdatingPause=false;
+	}
+	if(isset($_POST["beginOfTheBreak1"])==false || empty($_POST["beginOfTheBreak1"])==true){
+		$isDataCorrectForInterfaceUpdatingPause=false;
+	}
+	if(isset($_POST["endOfTheBreak1"])==false || empty($_POST["endOfTheBreak1"])==true){
+		$isDataCorrectForInterfaceUpdatingPause=false;
+	}
+	return $isDataCorrectForInterfaceUpdatingPause;
+}
+	
+	
+	
+function updateDatabaseBreak(){
+	$bdd = dbConnect();
+	$datetimeBeginBreak=htmlspecialchars($_POST["dateOfTheBreak1"]).' '.htmlspecialchars($_POST["beginOfTheBreak1"]);
+	$datetimeEndBreak=htmlspecialchars($_POST["dateOfTheBreak1"]).' '.htmlspecialchars($_POST["endOfTheBreak1"]);
+	$datetimeLastUpdate=''.date("Y-m-d H:i:s");
+	
+	$nameOfTheBreak="";
+	if(isset($_POST["nameOfTheBreak1"])==true && !(empty($_POST["nameOfTheBreak1"]))){
+		$nameOfTheBreak=htmlspecialchars($_POST["nameOfTheBreak1"]);
+	}			
+		
+	$request = $bdd->prepare('UPDATE break SET idUser=:newIdUser, datetimeBeginBreak=:newDatetimeBeginBreak, datetimeEndBreak=:newDatetimeEndBreak, datetimeLastUpdate=:newDatetimeEndBreak, nameOfTheBreak=:newNameOfTheBreak WHERE idBreak='.htmlspecialchars($_GET['idBreak']));
+	$request->execute(array(
+		'newIdUser'=>118218,
+		'newDatetimeBeginBreak' => $datetimeBeginBreak,
+		'newDatetimeEndBreak' => $datetimeEndBreak,
+		'newDatetimeLastUpdate' =>$datetimeLastUpdate,
+		'newNameOfTheBreak'=>$nameOfTheBreak,
+	));
 }

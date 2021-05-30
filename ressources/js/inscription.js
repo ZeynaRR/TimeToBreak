@@ -84,4 +84,35 @@ function valideFormulaire(formulaire) {
 }
 
 
+//------------AJAX------------
+$(document).ready(function(){
+	$("#inscription").click(function(){
+		event.preventDefault();
+			
+		var mail=$("#mail").val();
+		var pseudo=$("#pseudo").val();
+		var password_1=$("#motdepasse").val();
+		var password_2=$("#motdepasse2").val();
+		var accept=$("#accept").val();
+		$.post( "../controller/interfaceInscriptionController.php",
+		{
+			mail1:mail,
+			pseudo1:pseudo,
+			password1:password_1,
+			password2:password_2,
+			accept1:accept,
+		},
+		function( data ) {
+			if(data==0){
+			 //The user haven't been inserted
+			alert("Oups une erreur est survenue!");
+			}
+			if(data==1){
+			 //The user have been inserted
+			 alert("Felicitation !!! Vous avez bien ete inscrit");
+			 $(location).attr('href',"../public/index.php?action=connection");
 
+			}
+		});
+	});
+});

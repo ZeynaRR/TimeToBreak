@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="fr">
-
+<?php require("../model/model.php");?>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
@@ -19,46 +19,11 @@
 </head>
 <body>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-		<script>
-		$(document).ready(function(){
-		 $("#enregistrement").click(function(){
-		 event.preventDefault();
-		
-		 var dateOfTheBreak=$("#dateOfTheBreak").val();
-		 var beginOfTheBreak=$("#beginOfTheBreak").val();
-		 var endOfTheBreak=$("#endOfTheBreak").val();
-		 var nameOfTheBreak=$("#nameOfTheBreak").val();
-		 
-		 var currentUrl = window.location.href;
-		 var url = new URL(currentUrl);
-		 var idBreak = url.searchParams.get("idBreak");
-		 
-		 addressController="../controller/interfaceUpdatingPauseController.php?idBreak="+idBreak;
-		 $.post(addressController ,
-		 {
-		 dateOfTheBreak1:dateOfTheBreak,
-		 beginOfTheBreak1:beginOfTheBreak,
-		 endOfTheBreak1:endOfTheBreak,
-		 nameOfTheBreak1:nameOfTheBreak,
-		 },
-		 function( data ) {
-		 if(data==0){
-			 //The break haven't been updated
-			alert("Oups une erreur est survenue!");
-
-			}
-		 if(data==1){
-			 //The break have been updated
-			 alert("Modification prise en compte");
-			 $(location).attr('href',"interfaceListingPause.php");
-		 }
-		 }
-		 );
-		 });
-		});
-		</script>
+	<script type="text/javascript" src="../ressources/js/interfaceUpdatingPause.js">
+	</script>
 	<!--include a menue-->
-	<!--include a header-->
+	<?php include("../view/header.php"); ?>
+
 	<div id="divFormEnregistrement" class="container">
 		<div class="row text-center">
 			<h1>Mise à jour d'une pause</h1>
@@ -71,15 +36,7 @@
 </body>
 
 </html>
-
 <?php
-
-function dataBaseConnection()
-{
-	$bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', '');
-	return $bdd;
-}
-
 function displayTheCorrepondingBreak()
 {
 	$bdd = dataBaseConnection();

@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="fr">
-
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
@@ -19,16 +18,6 @@
 </head>
 <body>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-	<script>
-		function deleteByIdBreak(value){
-			event.preventDefault();
-			var pauseToDelete=confirm('Attention! Voulez-vous vraiment supprimer cette pause');
-			if(pauseToDelete){
-				var addressToDelete="../controller/interfaceDeletingPauseController.php?idBreak="+value;
-				$(location).attr('href',addressToDelete);
-			}
-		}
-	</script>
 
 	<?php include("../view/header.php"); ?>
 	
@@ -95,7 +84,7 @@ function selectMyPauseFromDataBaseAndDisplayIt()
 				?>
 			</td>
 			<td>
-				<a class="fas fa-edit" id="updateBreak" href="interfaceUpdatingPause.php?idBreak=<?php echo $data["idBreak"]; ?>"></a>
+				<a class="fas fa-edit" id="updateBreak" href="../public/index.php?action=updateBreak&idBreak=<?php echo $data["idBreak"]; ?>"></a>
 				<a class="far fa-trash-alt" id="deleteBreak" href="" onclick="deleteByIdBreak(<?php echo $data["idBreak"]; ?>)"></a>
 			</td>
 		</tr>
@@ -105,6 +94,8 @@ function selectMyPauseFromDataBaseAndDisplayIt()
 ?>
 <footer></footer>
 <script type="text/javascript" src="../ressources/js/inscription.js">
+</script>
+<script type="text/javascript" src="../ressources/js/interfaceListingPause.js">
 </script>
 </body>
 
