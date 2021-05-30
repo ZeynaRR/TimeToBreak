@@ -43,3 +43,9 @@ function ban_user()
 	banUser($id);
 	header("Location: ?action=ban");
 }
+
+function disconnect()
+{
+	session_destroy();
+	header("Location: ?action=connection");
+}

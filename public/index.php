@@ -22,10 +22,13 @@ try
 			break;
             case 'connection':
                 connection();
-                break;
+            break;
             case 'connect':
                 connect();
-                break;
+            break;
+            case 'disconnect':
+                disconnect();
+            break;
 		}
 	}
 }

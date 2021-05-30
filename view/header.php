@@ -15,7 +15,7 @@
 
             <?php if(isset($_SESSION['mail'])) { ?>
                 <img class="logoDisconnection" src="../ressources/images/logoDisconnection.png" alt="logoHome"/>
-                <a class="disconnection" href="?action=connection" style="text-decoration: none">Déconnexion</a>
+                <a class="disconnection" href="?action=disconnect" style="text-decoration: none">Déconnexion</a>
             <?php }
             else {
                 if(isset($_COOKIE['page']) && $_COOKIE['page'] == 'inscription') { ?>

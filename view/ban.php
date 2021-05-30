@@ -19,6 +19,8 @@
 
 <body>
 
+	<?php include("../view/header.php"); ?>
+
 	<h1 id="main_title">Bannir un membre</h1>
 
 	<div class="contain">
