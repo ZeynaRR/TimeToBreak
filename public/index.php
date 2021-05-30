@@ -2,8 +2,6 @@
 
 session_start();
 
-$_SESSION['status'] = "admin";
-
 require("../controller/controller.php");
 require("../controller/connexionController.php");
 
@@ -24,10 +22,19 @@ try
 			break;
             case 'connection':
                 connection();
-                break;
+            break;
             case 'connect':
                 connect();
-                break;
+            break;
+            case 'disconnect':
+                disconnect();
+            break;
+            case 'createBreak':
+                createBreak();
+            break;
+            case 'breakList':
+                breakList();
+            break;
 		}
 	}
 }

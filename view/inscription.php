@@ -46,7 +46,7 @@
 		 if(data==1){
 			 //The user have been inserted
 			 alert("Felicitation !!! Vous avez bien ete inscrit");
-			 $(location).attr('href',"connexion.php");
+			 $(location).attr('href',"/TimeToBreak/public/index.php?action=connection");
 
 		 }
 		 }

@@ -15,32 +15,34 @@
 
 <body>
 
-	<h1 id="main_title">Mon tableau de bord</h1>
+	<?php include("../view/header.php") ?>
+
+        <h1 id="main_title">Mon tableau de bord</h1>
 
 	<div class="contain">
 		<div class="row">
                 <div class="col justify-content-center align-items-center">
-                	<div class="division" id="general" <?php if($status!="user"){ ?> style="margin-top: 3%;" <?php }?>>
+                	<div class="division" id="general" <?php if($status!="1"){ ?> style="margin-top: 3%;" <?php }?>>
                                 <ul>
                                         <li><i class="fa fa-user" aria-hidden="true"></i><a href="">&nbsp;&nbsp; Accéder à mon profil</a></li>
                                         <br>
                                         <li><i class="fa fa-cog" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Paramètres</a></li>
                                 </ul>
                 	</div>
-                        <?php if($status=="user"){ ?>
+                        <?php if($status=="1"){ ?>
                         	<div class="division" id="breaks">
                         		<h3>Gérer mes pauses</h3>
                                         <ul class="list-group">
-                                                <li class="list-group-item"><i class="fa fa-plus" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Enregistrer une pause</a> </li>
-                                                <li class="list-group-item"><i class="fa fa-pause" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Liste de ses pauses</a></li> 
+                                                <li class="list-group-item"><i class="fa fa-plus" aria-hidden="true"></i><a href="?action=createBreak">&nbsp;&nbsp;Enregistrer une pause</a> </li>
+                                                <li class="list-group-item"><i class="fa fa-pause" aria-hidden="true"></i><a href="?action=breakList">&nbsp;&nbsp;Liste de ses pauses</a></li> 
                                         </ul>
                         	</div>
                         <?php } ?>
                 </div>
 
                 <div class="col justify-content-center align-items-center" id="right-part">
-                	<div class="division" id="activities" <?php if($status=="user"){ ?> style="margin-top: 5%;" <?php } ?>>
-                                <?php if($status=="user"){ ?>
+                	<div class="division" id="activities" <?php if($status=="1"){ ?> style="margin-top: 5%;" <?php } ?>>
+                                <?php if($status=="1"){ ?>
                 		      <h3>Mes activités</h3>
                         		<?php if($isTime){ ?>
                                                 <ul class="list-group">
@@ -56,15 +58,15 @@
                                 <?php } 
                                 else{ ?>
                                         <h3>Mes tâches</h3>
-                                        <?php if($status=="modo"){ ?>
+                                        <?php if($status=="2"){ ?>
                                                 <ul class="list-group">
-                                                        <li class="list-group-item"><i class="fa fa-ban" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Bannir un membre</a></li>
+                                                        <li class="list-group-item"><i class="fa fa-ban" aria-hidden="true"></i><a href="?action=ban">&nbsp;&nbsp;Bannir un membre</a></li>
                                                         <li class="list-group-item"><i class="fa fa-trash" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Supprimer un message</a></li> 
                                                 </ul>
                                         <?php } 
-                                        elseif($status=="admin"){ ?>
+                                        elseif($status=="3"){ ?>
                                                 <ul class="list-group">
-                                                        <li class="list-group-item"><i class="fa fa-ban" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Bannir un membre</a></li>
+                                                        <li class="list-group-item"><i class="fa fa-ban" aria-hidden="true"></i><a href="?action=ban">&nbsp;&nbsp;Bannir un membre</a></li>
                                                         <li class="list-group-item"><a href="">&nbsp;&nbsp;A propos</a></li>
                                                         <li class="list-group-item"><a href="">&nbsp;&nbsp;Nous contacter</a></li>
                                                         <li class="list-group-item"></i><a href="">&nbsp;&nbsp;CGU</a></li>  

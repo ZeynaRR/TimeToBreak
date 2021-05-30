@@ -34,7 +34,7 @@
 	}
 	
 	function dataBaseConnection(){
-		$bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', '');
+		$bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', 'Tinpl127.0.0.1');
 		return $bdd;
 	}
 	

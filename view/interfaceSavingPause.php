@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!doctype html>
 <html lang="fr">
 
@@ -22,8 +19,9 @@ session_start();
 </head>
 
 <body>
-	<!--include a menue-->
-	<!--include a header-->
+	
+	<?php include("../view/header.php") ?>
+
 	<div id="divFormEnregistrement" class="container">
 		<div class="row text-center">
 			<h1>Enregistrement d'une pause</h1>

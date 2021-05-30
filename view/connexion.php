@@ -49,7 +49,7 @@ setcookie('page', 'connexion', time() + 365 * 24 * 3600, null, null, false, true
             <script type="text/javascript" src="../ressources/js/connexion.js"></script>
     <?php }
         else {
-            header("Location: ../view/interfaceSavingPause.php");
+            header("Location: ?action=tdb");
         }
     ?>
 

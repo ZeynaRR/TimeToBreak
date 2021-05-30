@@ -4,18 +4,25 @@ require("../model/model.php");
 
 function tdb()
 {
-	$status =  $_SESSION['status'];
-	
-	$breaksTime = getBreaksTime();
-	$isTime = isTimeToBreak($breaksTime);
 
-	require("../view/tdb.php");
+	if(isset($_SESSION['status'])){
+		$status = $_SESSION['status'];
+		$breaksTime = getBreaksTime();
+		$isTime = isTimeToBreak($breaksTime);
+
+		require("../view/tdb.php");
+	}
+	else
+	{
+		
+		header("Location: ?action=connection");
+	}
 }
 
 function ban()
 {
 	$status =  $_SESSION['status'];
-	if(isAllowed($status, array("modo","admin")))
+	if(isAllowed($status, array("2","3")))
 	{
 		$users = getUsers();
 		$modos = getModos();
@@ -35,4 +42,20 @@ function ban_user()
 	$id = htmlspecialchars($_GET['id']);
 	banUser($id);
 	header("Location: ?action=ban");
+}
+
+function disconnect()
+{
+	session_destroy();
+	header("Location: ?action=connection");
+}
+
+function createBreak()
+{
+	require("../view/interfaceSavingPause.php");
+}
+
+function breakList()
+{
+	require("../view/interfaceListingPause.php");
 }

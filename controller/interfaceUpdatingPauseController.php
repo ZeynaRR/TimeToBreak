@@ -30,7 +30,7 @@
 	}
 	
 	function updateDatabaseBreak(){
-		$bdd = dataBaseConnection();
+		$bdd = dbConnect();
 		$datetimeBeginBreak=htmlspecialchars($_POST["dateOfTheBreak1"]).' '.htmlspecialchars($_POST["beginOfTheBreak1"]);
 		$datetimeEndBreak=htmlspecialchars($_POST["dateOfTheBreak1"]).' '.htmlspecialchars($_POST["endOfTheBreak1"]);
 		$datetimeLastUpdate=''.date("Y-m-d H:i:s");
