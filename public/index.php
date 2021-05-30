@@ -29,6 +29,12 @@ try
             case 'disconnect':
                 disconnect();
             break;
+            case 'createBreak':
+                createBreak();
+            break;
+            case 'breakList':
+                breakList();
+            break;
 		}
 	}
 }

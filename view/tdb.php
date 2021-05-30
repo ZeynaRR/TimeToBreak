@@ -33,8 +33,8 @@
                         	<div class="division" id="breaks">
                         		<h3>Gérer mes pauses</h3>
                                         <ul class="list-group">
-                                                <li class="list-group-item"><i class="fa fa-plus" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Enregistrer une pause</a> </li>
-                                                <li class="list-group-item"><i class="fa fa-pause" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Liste de ses pauses</a></li> 
+                                                <li class="list-group-item"><i class="fa fa-plus" aria-hidden="true"></i><a href="?action=createBreak">&nbsp;&nbsp;Enregistrer une pause</a> </li>
+                                                <li class="list-group-item"><i class="fa fa-pause" aria-hidden="true"></i><a href="?action=breakList">&nbsp;&nbsp;Liste de ses pauses</a></li> 
                                         </ul>
                         	</div>
                         <?php } ?>

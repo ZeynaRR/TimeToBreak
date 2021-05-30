@@ -14,8 +14,8 @@ function tdb()
 	}
 	else
 	{
-		var_dump($_SESSION);
-		throw new Exception('Access Denied');
+		
+		header("Location: ?action=connection");
 	}
 }
 
@@ -48,4 +48,14 @@ function disconnect()
 {
 	session_destroy();
 	header("Location: ?action=connection");
+}
+
+function createBreak()
+{
+	require("../view/interfaceSavingPause.php");
+}
+
+function breakList()
+{
+	require("../view/interfaceListingPause.php");
 }

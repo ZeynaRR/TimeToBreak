@@ -29,11 +29,14 @@
 			}
 		}
 	</script>
+
+	<?php include("../view/header.php"); ?>
+	
 	<h1>Mes pauses:</h1>
 	<section class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<a href="interfaceSavingPause.php" id="addBreak"> Ajouter une pause</a>
+				<a href="?action=createBreak" id="addBreak"> Ajouter une pause</a>
 			</div>
 			<br> <br>
 			<div class="col-sm-12 table-responsive">
@@ -67,15 +70,10 @@
 
 </html>
 <?php
-function dataBaseConnection()
-{
-	$bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', '');
-	return $bdd;
-}
 
 function selectMyPauseFromDataBaseAndDisplayIt()
 {
-	$bdd = dataBaseConnection();
+	$bdd = dbConnect();
 	$request = $bdd->prepare('SELECT * FROM break');
 	$request->execute(array());
 	while ($data = $request->fetch()) {
