@@ -31,7 +31,6 @@ h1{
     margin-bottom: 1em;
     float: right;
     background-color: var(--rose);
-    color: white;
     border-radius: 25px;
     padding: 10px;
 }
@@ -40,13 +39,19 @@ h1{
     margin-bottom: 1em;
     float: left;
     background-color: darkblue;
-    color: white;
     border-radius: 25px;
     padding: 10px;
 }
+.content{
+    color: white;
+}
 .pseudo{
-     color: black;
+    color: black;
  }
+
+.time{
+    color: white;
+}
 #sendMessage{
     width: 60em;
     height: 5em;

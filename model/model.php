@@ -399,7 +399,7 @@ function getMessages($idActualUser) {
     $queryMessage = $bdd->query($sqlSelectMessages);
 
     $queryUsersBelong = $bdd->prepare('SELECT * FROM user WHERE idUser = :idUser');
-
+	$_SESSION['credentialUser'] = 2;
     if ($queryMessage != false) {
         foreach ($queryMessage as $row) {
 
@@ -413,10 +413,12 @@ function getMessages($idActualUser) {
                 $messageClass = 'othersMessages';
 
             echo("<div class='". $messageClass ."'>
-                    ". $row['contentOfTheMessage'] ."
+                    <div class='content'>". $row['contentOfTheMessage'] ."</div>
                     <div class='peudo'>". $rowUser['pseudoUser'] ."</div>
-                    <div class='time'>". $row['datetimeSendMessage'] ."</div>
-                  </div>");
+                    <div class='time'>". $row['datetimeSendMessage'] ."</div>");
+			showDeleteButton($row['idMessage'], $idRoom);
+			echo "</div>";
+
         }
     }
 }
@@ -426,7 +428,23 @@ function sendMessage($content, $idRoom, $idUser) {
     $sqlInsertMessage = 'INSERT INTO message (idRoom, idUser, contentOfTheMessage) VALUES (?,?,?)';
     $queryInsertMessage = $bdd->prepare($sqlInsertMessage);
     $queryInsertMessage->execute( [$idRoom, $idUser, $content]);
+	$bdd = null;
 }
+
+function showDeleteButton($idMessage,$idRoom) {
+	if (isset($_SESSION['credentialUser']) and $_SESSION['credentialUser']>=2) {
+		echo("<a class='deleteMessageButton' href='../controller/interfaceDeleteMessageController?messageId=$idMessage&idRoom=$idRoom'>Delete</a>");
+	}
+}
+
+function deleteMessage($idMessage) {
+	$bdd = dataBaseConnection();
+	$queryDeleteMessage = $bdd->prepare("DELETE FROM message WHERE idMessage=:id");
+	$queryDeleteMessage->bindParam(":id", $idMessage, PDO::PARAM_INT);
+	$queryDeleteMessage->execute();
+	$bdd = null;
+}
+
 
 ?>
 

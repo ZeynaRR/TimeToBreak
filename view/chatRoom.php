@@ -14,9 +14,10 @@
 <div id="main">
     <div id="chatBox">
         <div id="messages">
-            <?php getMessages(15);?>
+            <?php getMessages(15); ?>
+
         </div>
-        <form id="sendMessage" method="post" action="../controller/sendChatMessageController.php">
+        <form id="sendMessage" method="post" action="../controller/interfaceChatMessageController.php">
             <input type="hidden" value="<?php echo htmlspecialchars($_GET['idRoom'])?>" name="idRoom" id="idRoom">
             <input type="text" name="messageInput" id="messageInput">
             <input type="submit" value="Submit" id="submitButton">
