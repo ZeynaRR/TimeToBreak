@@ -1,4 +1,4 @@
-<?php include "../model/modelChatRoom.php"?>
+<?php include "../model/model.php"?>
 
 <!DOCTYPE html>
 <html>

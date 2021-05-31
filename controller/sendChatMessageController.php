@@ -1,5 +1,5 @@
 <?php
-include "../model/modelChatRoom.php";
+include "../model/model.php";
 $messageContent = htmlspecialchars($_POST['messageInput']);
 $idRoom = htmlspecialchars($_POST['idRoom']);
 $idUser = 15;
