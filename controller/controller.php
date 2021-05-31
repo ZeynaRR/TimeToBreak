@@ -65,6 +65,16 @@ function inscription()
 	require("../view/inscription.php");
 }
 
+function inscriptionModerator()
+{
+	require("../view/inscriptionModerator.php");
+}
+
+function codeModerator()
+{
+	require("../view/codeModerator.php");
+}
+
 function interfaceListingPause()
 {
 	require("../view/interfaceListingPause.php");

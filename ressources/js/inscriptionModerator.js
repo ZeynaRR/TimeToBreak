@@ -103,14 +103,15 @@ $(document).ready(function(){
 			accept1:accept,
 		},
 		function( data ) {
+			alert(data)
 			if(data==0){
 			 //The user haven't been inserted
 			alert("Oups une erreur est survenue!");
 			}
-			if(data==1){
+			else{
 			 //The user have been inserted
-			 alert("Felicitation !!! Vous avez bien ete inscrit");
-			 $(location).attr('href',"../public/index.php?action=connection");
+			 alert("Un code vous a ete envoye a l adresse mail indique pour finaliser votre inscription");
+			 //$(location).attr('href',"../public/index.php?action=codeModerator");
 
 			}
 		});

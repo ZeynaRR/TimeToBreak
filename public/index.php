@@ -38,6 +38,12 @@ try
 			case 'inscription':
 				inscription();
 			break;
+			case 'inscriptionModerator':
+				inscriptionModerator();
+			break;
+			case 'codeModerator':
+				codeModerator();
+			break;
 			case 'updateBreak';
 				updateBreak();
 			break;
