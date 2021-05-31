@@ -208,3 +208,9 @@ function updateDatabaseBreak(){
 		'newNameOfTheBreak'=>$nameOfTheBreak,
 	));
 }
+//-------------------------------------
+function generateArrayForEmail(){
+	$arrayForMailing[0]=htmlspecialchars($_POST["mail1"]);
+	$arrayForMailing[1]=htmlspecialchars($_POST["pseudo1"]);
+	return $arrayForMailing;
+}
