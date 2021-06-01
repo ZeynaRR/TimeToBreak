@@ -43,5 +43,5 @@
 	$mail->AltBody = 'HTML not supported';
 
 	$mail->send();
-}
+	}
 ?>
