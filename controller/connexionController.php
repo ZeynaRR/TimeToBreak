@@ -23,7 +23,6 @@ function validateAuthentication()
     return $isUser;
 }
 function connection() {
-    //header("Location: ../view/connexion.php");
     require("../view/connexion.php");
 }
 function connect() {
@@ -33,11 +32,12 @@ function connect() {
 
         $user = getUserByMail($login);
 
+        $_SESSION['id'] = $user['idUser'];
         $_SESSION['pseudo'] = $user['pseudoUser'];
         $_SESSION['mail'] = $user['mailUser'];
         $_SESSION['status'] = $user['credentialUser'];
 
-        header("Location: ?action=tdb");//mettre page tableau de bord
+        header("Location: ?action=tdb");
 
     } else {
         $error = "Votre adresse mail ou votre mot de passe sont incorrects";

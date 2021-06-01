@@ -22,7 +22,7 @@ setcookie('page', 'connexion', time() + 365 * 24 * 3600, null, null, false, true
 </head>
 
 <body>
-    <?php if (!isset($_SESSION['mail'])) {
+    <?php if (!isset($_SESSION['id'])) {
          include("header.php");
     ?>
          <h1>Connexion</h1>
@@ -33,7 +33,7 @@ setcookie('page', 'connexion', time() + 365 * 24 * 3600, null, null, false, true
                     <label for="password">Mot de passe : </label><br><br>
                     <div id="passwordZone">
                         <input type="password" name="password" id="password"/>
-                        <input type="image" src="../ressources/images/mdp.png" id="masque" title="Masquer/démasquer le mot de passe pour vérifier" onclick="displayPassword(); return false;">
+                        <input name="passwordView" type="image" src="../ressources/images/mdp.png" id="masque" title="Masquer/démasquer le mot de passe pour vérifier" onclick="displayPassword(); return false;">
                     </div><br><br><br><br>
                     <div class="errors" id="erreurs"></div>
                         <?php

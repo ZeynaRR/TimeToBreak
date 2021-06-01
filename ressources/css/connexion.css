@@ -16,18 +16,18 @@
 
 .connexion input[type="email"], input[type="password"], input[type="text"] {
     background-color: var(--bgInput);
-    width: 22em;
-    height: 20px;
+    width: 27em;
+    height: 27px;
     border-radius: var(--arrondiInput);
     border: 1px solid var(--bgInput);
 }
 
-input[type="image"] {
+input[name="passwordView"] {
     background-color: transparent;
     width: 40px;
     height: 40px;
     position: absolute;
-    top: 420px;
+    top: 425px;
     margin-left: 15px;
 }
 
@@ -44,7 +44,7 @@ input[type="image"] {
     font-size: 17px;
     font-weight: bold;
     height: 2em;
-    margin-left: 340px;
+    margin-left: 300px;
 }
 
 .errors {
