@@ -47,6 +47,9 @@ try
 			case 'updateBreak';
 				updateBreak();
 			break;
+			case 'contact';
+				contact();
+			break;
 		}
 	}
 }

@@ -86,3 +86,8 @@ function updateBreak()
 	$adressToGo='Location:../view/interfaceUpdatingPause.php?idBreak='.$idBreak;
 	header($adressToGo);
 }
+
+function contact()
+{
+	require("../view/contact.html");
+}
