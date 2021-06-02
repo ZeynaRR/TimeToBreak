@@ -215,13 +215,6 @@ function updateDatabaseBreak(){
 	));
 }
 //-------------------------------------
-function generateArrayForEmail(){
-	$arrayForMailing[0]=htmlspecialchars($_POST["mail1"]);
-	$arrayForMailing[1]=htmlspecialchars($_POST["pseudo1"]);
-	return $arrayForMailing;
-}
-
-//-----------------------------------
 function isDataValidForSendingEmailToTimeToBreak(){
 	$isItDataCorrectForSendingMailToTTB=true;
 	if(isset($_POST["identifiant"])==false || empty($_POST["identifiant"])==true){
@@ -263,4 +256,54 @@ function generateEmailToAdminTimeToBreak(){
 	$mail->msgHTML($globalInformation); // remove if you do not want to send HTML email
 	$mail->AltBody = 'HTML not supported';
 	$mail->send();
+}
+
+//---------------------------------------
+function generateEmailForInscriptionModerator(){
+	$pseudoUser=htmlspecialchars($_POST["pseudo1"]);
+	$mailUser=htmlspecialchars($_POST["mail1"]);
+	$passwordUser=htmlspecialchars($_POST["password1"]);
+	
+	$link='http://127.0.0.1/gitTimeToBreak/TimeToBreak/public/index.php?action=codeModerator&pseudo='.$pseudoUser.'&mail='.$mailUser.'&password='.$passwordUser;
+	
+	$text='Bonjour. Veuillez recopier le code suivant<br>
+					5194815
+					<br>sur le lien suivant<br>
+					<a href="'.$link.'">lien</a>
+					<br> Ou si le lien ne s ouvre pas :'.$link.'<br>L equipe TimeToBreak';
+	$mail = new PHPMailer;
+	$mail->isSMTP(); 
+	$mail->SMTPDebug = 2; 
+	$mail->Host = "smtp.gmail.com"; 
+	$mail->Port = 587; // typically 587 
+	$mail->SMTPSecure = 'tls'; // ssl is depracated
+	$mail->SMTPAuth = true;
+	$mail->Username = "geai4dai@gmail.com";
+	$mail->Password = "blaAPPL313d";
+	$mail->setFrom("geai4dai@gmail.com", "geai");
+	//$mail->addAddress("geai4dai@gmail.com", "geai");
+	$mail->addAddress($mailUser, $pseudoUser);
+	$mail->Subject = 'Inscription Moderateur';
+	$mail->msgHTML($text); // remove if you do not want to send HTML email
+	$mail->AltBody = 'HTML not supported';
+
+	$mail->send();
+}
+
+function insertModeratorInTheDatabase(){
+	$bdd = dataBaseConnection();
+	$pseudoUser=htmlspecialchars($_POST["pseudo1"]);
+	$mailUser=htmlspecialchars($_POST["mail1"]);
+	$passwordUser=htmlspecialchars($_POST["password1"]);
+		
+	$hashedPassword=$res=password_hash($passwordUser,PASSWORD_DEFAULT);
+		
+	$request = $bdd->prepare('INSERT INTO user (pseudoUser,mailUser,passwordUser,credentialUser) VALUES (:pseudoUser,:mailUser,:passwordUser,:credentialUser)');
+	$request->execute(array(
+		'pseudoUser'=>$pseudoUser,
+		'mailUser' => $mailUser,
+		'passwordUser' => $hashedPassword,
+		'credentialUser' =>2,
+	));
+	return 1;
 }

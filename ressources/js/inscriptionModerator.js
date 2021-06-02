@@ -103,7 +103,6 @@ $(document).ready(function(){
 			accept1:accept,
 		},
 		function( data ) {
-			alert(data)
 			if(data==0){
 			 //The user haven't been inserted
 			alert("Oups une erreur est survenue!");
@@ -111,7 +110,8 @@ $(document).ready(function(){
 			else{
 			 //The user have been inserted
 			 alert("Un code vous a ete envoye a l adresse mail indique pour finaliser votre inscription");
-			 //$(location).attr('href',"../public/index.php?action=codeModerator");
+			 var addressToGo="../public/index.php?action=codeModerator&pseudo="+pseudo+"mail="+mail+"&password="+password_1;
+			 $(location).attr('href',addressToGo);
 
 			}
 		});
