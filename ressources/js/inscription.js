@@ -94,7 +94,7 @@ $(document).ready(function(){
 		var password_1=$("#motdepasse").val();
 		var password_2=$("#motdepasse2").val();
 		var accept=$("#accept").val();
-		$.post( "../controller/interfaceInscriptionModeratorController.php",
+		$.post( "../controller/interfaceInscriptionController.php",
 		{
 			mail1:mail,
 			pseudo1:pseudo,
