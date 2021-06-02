@@ -307,3 +307,33 @@ function insertModeratorInTheDatabase(){
 	));
 	return 1;
 }
+
+function isTheMailAlreadyUsed(){
+	$mailUser=htmlspecialchars($_POST["mail1"]);
+	$bdd=dataBaseConnection();
+	$statement='SELECT * FROM user WHERE mailUser="'.$mailUser.'"';
+	$counter=0;
+	$request= $bdd->query($statement);
+	while($donnee=$request->fetch()){
+		$counter=$counter+1;
+	}
+	if($counter==1){
+		return false;
+	}
+	return true;
+}
+
+function isThePseudoAlreadyUsed(){
+	$pseudoUser=htmlspecialchars($_POST["pseudo1"]);
+	$bdd=dataBaseConnection();
+	$statement='SELECT * FROM user WHERE pseudoUser="'.$pseudoUser.'"';
+	$counter=0;
+	$request= $bdd->query($statement);
+	while($donnee=$request->fetch()){
+		$counter=$counter+1;
+	}
+	if($counter==1){
+		return false;
+	}
+	return true;
+}

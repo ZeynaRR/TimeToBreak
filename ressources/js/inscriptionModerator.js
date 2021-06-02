@@ -107,6 +107,9 @@ $(document).ready(function(){
 			 //The user haven't been inserted
 			alert("Oups une erreur est survenue!");
 			}
+			else if(data==2){
+				alert("Desole. Ce nom ou ce pseudo est occupe");
+			}
 			else{
 			 //The user have been inserted
 			 alert("Un code vous a ete envoye a l adresse mail indique pour finaliser votre inscription");
