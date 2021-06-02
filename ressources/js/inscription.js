@@ -105,8 +105,13 @@ $(document).ready(function(){
 		function( data ) {
 			if(data==0){
 			 //The user haven't been inserted
-			alert("Oups une erreur est survenue!");
+				alert("Oups une erreur est survenue!");
 			}
+			
+			if(data==2){
+				alert("Desole. Ce nom ou ce pseudo est occupe");
+			}
+			
 			if(data==1){
 			 //The user have been inserted
 			 alert("Felicitation !!! Vous avez bien ete inscrit");
