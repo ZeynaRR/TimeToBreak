@@ -337,3 +337,8 @@ function isThePseudoAlreadyUsed(){
 	}
 	return true;
 }
+
+function getAllGames() {
+    $bdd = dbConnect();
+    return $bdd->query('SELECT * FROM game');
+}

@@ -1,0 +1,72 @@
+.gamesList {
+    border: 10px solid var(--rose);
+    width:90%;
+    margin:auto;
+    border-radius: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.game {
+    margin-left:80px;
+    margin-bottom: 40px;
+    width: 40%;
+    padding-bottom: 25px;
+}
+
+a[class="play"] {
+    color: white;
+}
+
+a[class="play"]:hover {
+    color: var(--rose);
+}
+
+.gameComment {
+    padding:5px;
+    margin-top:20px;
+    height: 30%;
+    overflow: auto;
+    margin-bottom:20px;
+    text-align: justify;
+    color: #BDBDBD;
+    line-height: 2em;
+    border:2px solid lightpink;
+    border-radius: 10px;
+}
+
+button[class="play"] {
+    margin-left: 190px;
+    background-color: var(--rose);
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    border: 1px solid var(--rose);
+}
+
+button[class="play"]:hover {
+    background-color: #dddddd;
+}
+
+h3 {
+    color: #ffbc03;
+    text-align: center;
+    margin-bottom: 15px;
+    font-family: "Arial Nova";
+}
+
+img[class="gameImage"] {
+    margin-left: 85px;
+    width: 300px;
+    height: 220px;
+    margin-bottom: 15px;
+}
+
+.theme {
+    color: #ffbc03;
+    font-family: "Arial Nova";
+    font-size: 20px;
+    text-align: center;
+}

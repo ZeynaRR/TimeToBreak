@@ -50,6 +50,10 @@ try
 			case 'contact';
 				contact();
 			break;
+			case 'games';
+			    games();
+			break;
+
 		}
 	}
 }

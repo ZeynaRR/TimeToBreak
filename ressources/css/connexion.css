@@ -47,6 +47,11 @@ input[name="passwordView"] {
     margin-left: 300px;
 }
 
+#connexion:hover {
+    background-color: #dddddd;
+    color: var(--rose);
+}
+
 .errors {
     border: 1px solid;
     font-family: "Arial Nova";

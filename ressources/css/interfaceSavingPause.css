@@ -27,3 +27,8 @@ input[type="date"],input[type="time"], input[type="text"] {
     font-size: 15px;
     height: 2em;
 }
+
+#enregistrement:hover {
+    background-color:#dddddd;
+    color: var(--rose);
+}
