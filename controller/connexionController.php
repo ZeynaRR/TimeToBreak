@@ -5,12 +5,11 @@ function dataBaseConnection(){
     return $bdd;
 }
 */
-require("../model/connexionModel.php");
 
 function validateAuthentication()
 {
     $isUser = false;
-    $req = getAllUsers();
+    $req = getUsers();
     if (isset($_POST["login"]) && isset($_POST["password"])) {
         $login = htmlspecialchars($_POST["login"]);
         $password = htmlspecialchars($_POST["password"]);
