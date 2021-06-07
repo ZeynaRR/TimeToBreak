@@ -22,7 +22,7 @@
                     <img class="logoInscription-Connexion" src="../ressources/images/profilLogo.png" alt="logoInscription"/>
                     <a class="inscription-connexion" href="?action=connection" style="text-decoration: none">Connexion</a>
                 <?php }
-                else if ($_GET['action'] == 'connection') { ?>
+                else if ($_GET['action'] == 'connection' || $_GET['action'] == 'connect') { ?>
                     <img class="logoInscription-Connexion" src="../ressources/images/profilLogo.png" alt="logoInscription"/>
                     <a class="inscription-connexion" href="?action=inscription" style="text-decoration: none">Inscription</a>
                 <?php } ?>

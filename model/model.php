@@ -17,21 +17,24 @@ function dataBaseConnection(){
 //-----------------------------------------------------
 function getBreaksTime()
 {
-	$breaksTime = [['begin' => date("2021-05-04 01:24:32"),'end' => date("2021-05-04 03:30:00")], ['begin' => date("2021-05-07 01:24:32"),'end' => date("2021-05-11 03:30:00")]];
-
+    $allBreaks = getAllBreaks();
+    foreach($allBreaks as $break) {
+        $breaksTime['begin'][] = $break['datetimeBeginBreak'];
+        $breaksTime['end'][] = $break['datetimeEndBreak'];
+    }
 	return $breaksTime;
 }
 
 function isTimeToBreak($breaksTime)
 {
-	$now = date("Y-m-d H:i:s");
-
+    date_default_timezone_set('Europe/Paris');
+    $now = date("Y-m-d H:i:s");
 	$isBreak = false;
 
-	foreach($breaksTime as $break){
-		if($break['begin'] <= $now && $now <= $break['end'])
+	for($i = 0; $i < sizeof($breaksTime['begin']); $i++){
+		if(strtotime($breaksTime['begin'][$i]) <= strtotime($now) && strtotime($now) <= strtotime($breaksTime['end'][$i]))
 		{
-			$isBreak = true;
+		    return true;
 		}
 	}
 
@@ -41,6 +44,14 @@ function isTimeToBreak($breaksTime)
 function isAllowed($status, $allowed)
 {
 	return in_array($status, $allowed);
+}
+
+function getAll() {
+    $bdd = dbConnect();
+
+    $req = $bdd->query('SELECT idUser,pseudoUser,mailUser,passwordUser FROM `user` WHERE Ban=0');
+
+    return $req;
 }
 
 function getUsers()
@@ -243,6 +254,12 @@ function updateDatabaseBreak(){
 		'newDatetimeLastUpdate' =>$datetimeLastUpdate,
 		'newNameOfTheBreak'=>$nameOfTheBreak,
 	));
+}
+
+function getAllBreaks() {
+    $bdd = dbConnect();
+    $breaksList = $bdd->query('SELECT * FROM break');
+    return $breaksList;
 }
 //-------------------------------------
 

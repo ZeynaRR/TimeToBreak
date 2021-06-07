@@ -1,8 +1,3 @@
-<?php
-
-include "header.php";
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -18,7 +13,7 @@ include "header.php";
 						</head>
                         <title> Profil</title>
 						<body>
-                        
+                            <?php include("header.php"); ?>
 							<div class="row dashboard">
 								<div class="col-md-4">
 									<div class="profile">
