@@ -48,20 +48,9 @@ include "header.php";
 												</section>
 											</div>
 										</div>
-										<div class="row">
-											<div class="col-8">
-												<section class="form2">
-													<h2>Centres d'intérêts</h2>
-													<form action="">
-														<div class="row">
-															<div class="col-6">
-																<button>Aventure</button>
-																<button>Cuisine</button>
-															</div>
+										
 															<div class="btn-group">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown button
-  </button>
+ 
   <div class="dropdown-menu">
     <a class="dropdown-item" href="#">Action</a>
     <a class="dropdown-item" href="#">Another action</a>
