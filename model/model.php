@@ -88,6 +88,22 @@ function banUser($id)
 	$req->execute(array($id));
 }
 
+function isBanned($login)
+{
+	$user = getUserByMail($login);
+	return $user['Ban'];
+}
+
+function deleteUserByMail($mail)
+{
+	$bdd = dbConnect();
+    $req = $bdd->prepare('DELETE FROM user WHERE mailUser = ?');
+    $req->execute(
+        array(
+            $mail
+        )
+    );	
+}
 
 //-----------------------------------------------------
 
