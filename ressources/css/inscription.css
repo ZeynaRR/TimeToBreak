@@ -12,6 +12,11 @@
     height: 2em;
 }
 
+#inscription:hover {
+    background-color: #dddddd;
+    color: var(--rose);
+}
+
 label{
     color: var(--texteGris);
     font-size: 20px;

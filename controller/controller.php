@@ -91,3 +91,18 @@ function contact()
 {
 	require("../view/contact.html");
 }
+
+function games() {
+    if(isset($_SESSION['status'])){
+        $status = $_SESSION['status'];
+        $breaksTime = getBreaksTime();
+        $isTime = isTimeToBreak($breaksTime);
+
+        $gamesList = getAllGames();
+        require("../view/gameInterface.php");
+    }
+    else
+    {
+        header("Location: ?action=connection");
+    }
+}

@@ -47,7 +47,7 @@ function getUsers()
 {
 	$bdd = dbConnect();
 	
-	$req = $bdd->query('SELECT idUser,pseudoUser,mailUser FROM `user` WHERE credentialUser=1 AND Ban=0');
+	$req = $bdd->query('SELECT idUser,pseudoUser,mailUser,passwordUser FROM `user` WHERE credentialUser=1 AND Ban=0');
 
 	return $req;
 }
@@ -68,6 +68,17 @@ function getAdmins()
 	$req = $bdd->query('SELECT idUser,pseudoUser,mailUser FROM `user` WHERE credentialUser=3 AND Ban=0');
 
 	return $req;
+}
+
+function getUserByMail(String $mail) {
+    $bdd = dbConnect();
+    $req = $bdd->prepare('SELECT * FROM user WHERE mailUser = ?');
+    $req->execute(
+        array(
+            $mail
+        )
+    );
+    return $req->fetch();
 }
 
 function banUser($id)
@@ -336,4 +347,9 @@ function isThePseudoAlreadyUsed(){
 		return false;
 	}
 	return true;
+}
+
+function getAllGames() {
+    $bdd = dbConnect();
+    return $bdd->query('SELECT * FROM game');
 }
