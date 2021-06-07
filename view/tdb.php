@@ -24,7 +24,7 @@
                 <div class="col justify-content-center align-items-center">
                 	<div class="division" id="general" <?php if($status!="1"){ ?> style="margin-top: 3%;" <?php }?>>
                                 <ul>
-                                        <li><i class="fa fa-user" aria-hidden="true"></i><a href="">&nbsp;&nbsp; Accéder à mon profil</a></li>
+                                        <li><i class="fa fa-user" aria-hidden="true"></i><a href="?action=profile">&nbsp;&nbsp; Accéder à mon profil</a></li>
                                         <br>
                                         <li><i class="fa fa-cog" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Paramètres</a></li>
                                 </ul>
@@ -48,7 +48,7 @@
                                                 <ul class="list-group">
 
                                                         <li class="list-group-item"><i class="fa fa-comment-o" aria-hidden="true"></i><a href="?action=selectChatRoom">&nbsp;&nbsp;Salons de discussion</a></li>
-                                                        <li class="list-group-item"><i class="fa fa-play-circle-o" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Jouer</a></li>
+                                                        <li class="list-group-item"><i class="fa fa-play-circle-o" aria-hidden="true"></i><a href="?action=games">&nbsp;&nbsp;Jouer</a></li>
                                                         <li class="list-group-item"><i class="fa fa-heart-o" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Étirements</a></li>
                                                         <li class="list-group-item"><i class="fa fa-forward" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Autres activités</a></li>  
                                                 </ul>
