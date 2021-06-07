@@ -50,8 +50,8 @@ try
 			case 'contact';
 				contact();
 			break;
-            case 'selectChatRoom':
-                selectChatRoom();
+      case 'selectChatRoom':
+           electChatRoom();
             break;
             case 'chatRoom':
                 chatRoom();
@@ -65,7 +65,9 @@ try
             case 'banUserRoom':
                 banUserFromRoomController();
             break;
-
+			case 'games';
+			    games();
+			break;
 		}
 	}
 }

@@ -1,6 +1,3 @@
-<?php
-    setcookie('page', 'inscription', time() + 365 * 24 * 3600, null, null, false, true);
-?>
 <!DOCTYPE html>
 <html>
 

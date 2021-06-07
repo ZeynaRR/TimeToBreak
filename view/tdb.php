@@ -46,6 +46,7 @@
                 		      <h3>Mes activités</h3>
                         		<?php if($isTime){ ?>
                                                 <ul class="list-group">
+
                                                         <li class="list-group-item"><i class="fa fa-comment-o" aria-hidden="true"></i><a href="?action=selectChatRoom">&nbsp;&nbsp;Salons de discussion</a></li>
                                                         <li class="list-group-item"><i class="fa fa-play-circle-o" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Jouer</a></li>
                                                         <li class="list-group-item"><i class="fa fa-heart-o" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Étirements</a></li>

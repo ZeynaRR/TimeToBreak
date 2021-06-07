@@ -1,16 +1,10 @@
 <?php
-/*
-function dataBaseConnection(){
-    $bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', '');
-    return $bdd;
-}
-*/
-require("../model/connexionModel.php");
+
 
 function validateAuthentication()
 {
     $isUser = false;
-    $req = getAllUsers();
+    $req = getUsers();
     if (isset($_POST["login"]) && isset($_POST["password"])) {
         $login = htmlspecialchars($_POST["login"]);
         $password = htmlspecialchars($_POST["password"]);
@@ -18,6 +12,9 @@ function validateAuthentication()
             if ($donnees['mailUser'] == $login && password_verify($password, $donnees['passwordUser'])) {
                 $isUser = true;
             }
+        }
+        if(isBanned($login)){
+            $isUser = false;
         }
     }
     return $isUser;
@@ -40,7 +37,14 @@ function connect() {
         header("Location: ?action=tdb");
 
     } else {
-        $error = "Votre adresse mail ou votre mot de passe sont incorrects";
+        $login = htmlspecialchars($_POST['login']);
+        if(isBanned($login)){
+            $error = "Vous avez été banni de la plateforme en raison du non respect des conditions d'utilisation, votre compte à été désactivé.";
+            deleteUserByMail($login);
+        }
+        else{
+            $error = "Votre adresse mail ou votre mot de passe sont incorrects";
+        }
         require("../view/connexion.php");
     }
 }

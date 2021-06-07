@@ -92,6 +92,7 @@ function contact()
 	require("../view/contact.html");
 }
 
+
 function selectChatRoom() {
     require("../view/selectChatRoom.php");
 }
@@ -121,4 +122,19 @@ function banUserFromRoomController() {
     $idRoom = htmlspecialchars($_GET['idRoom']);
     banUser($userId);
     header('Location: ../public/index.php?action=chatRoom&idRoom=' . $idRoom . '');
+
+function games() {
+    if(isset($_SESSION['status'])){
+        $status = $_SESSION['status'];
+        $breaksTime = getBreaksTime();
+        $isTime = isTimeToBreak($breaksTime);
+
+        $gamesList = getAllGames();
+        require("../view/gameInterface.php");
+    }
+    else
+    {
+        header("Location: ?action=connection");
+    }
+
 }
