@@ -34,7 +34,7 @@
                         		<h3>Gérer mes pauses</h3>
                                         <ul class="list-group">
                                                 <li class="list-group-item"><i class="fa fa-plus" aria-hidden="true"></i><a href="?action=createBreak">&nbsp;&nbsp;Enregistrer une pause</a> </li>
-                                                <li class="list-group-item"><i class="fa fa-pause" aria-hidden="true"></i><a href="?action=breakList">&nbsp;&nbsp;Liste de ses pauses</a></li> 
+                                                <li class="list-group-item"><i class="fa fa-pause" aria-hidden="true"></i><a href="?action=breakList">&nbsp;&nbsp;Liste de ses pauses</a></li>
                                         </ul>
                         	</div>
                         <?php } ?>
@@ -46,7 +46,7 @@
                 		      <h3>Mes activités</h3>
                         		<?php if($isTime){ ?>
                                                 <ul class="list-group">
-                                                        <li class="list-group-item"><i class="fa fa-comment-o" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Salons de discussion</a></li>
+                                                        <li class="list-group-item"><i class="fa fa-comment-o" aria-hidden="true"></i><a href="?action=selectChatRoom">&nbsp;&nbsp;Salons de discussion</a></li>
                                                         <li class="list-group-item"><i class="fa fa-play-circle-o" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Jouer</a></li>
                                                         <li class="list-group-item"><i class="fa fa-heart-o" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Étirements</a></li>
                                                         <li class="list-group-item"><i class="fa fa-forward" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Autres activités</a></li>  
@@ -60,12 +60,14 @@
                                         <h3>Mes tâches</h3>
                                         <?php if($status=="2"){ ?>
                                                 <ul class="list-group">
-                                                        <li class="list-group-item"><i class="fa fa-ban" aria-hidden="true"></i><a href="?action=ban">&nbsp;&nbsp;Bannir un membre</a></li>
-                                                        <li class="list-group-item"><i class="fa fa-trash" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Supprimer un message</a></li> 
+                                                    <li class="list-group-item"><i class="fa fa-comment-o" aria-hidden="true"></i><a href="?action=selectChatRoom">&nbsp;&nbsp;Salons de discussion</a></li>
+                                                    <li class="list-group-item"><i class="fa fa-ban" aria-hidden="true"></i><a href="?action=ban">&nbsp;&nbsp;Bannir un membre</a></li>
+                                                    <li class="list-group-item"><i class="fa fa-trash" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Supprimer un message</a></li>
                                                 </ul>
                                         <?php } 
                                         elseif($status=="3"){ ?>
                                                 <ul class="list-group">
+                                                        <li class="list-group-item"><i class="fa fa-comment-o" aria-hidden="true"></i><a href="?action=selectChatRoom">&nbsp;&nbsp;Salons de discussion</a></li>
                                                         <li class="list-group-item"><i class="fa fa-ban" aria-hidden="true"></i><a href="?action=ban">&nbsp;&nbsp;Bannir un membre</a></li>
                                                         <li class="list-group-item"><a href="">&nbsp;&nbsp;A propos</a></li>
                                                         <li class="list-group-item"><a href="">&nbsp;&nbsp;Nous contacter</a></li>

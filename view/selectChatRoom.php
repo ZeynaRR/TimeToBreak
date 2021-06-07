@@ -1,5 +1,3 @@
-<?php include "../model/model.php"?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +8,10 @@
 </head>
 
 <body>
+<?php if (isset($_SESSION['id'])) {
+    include("header.php");
+}
+?>
 <h1> Salons de Discussions </h1>
 <div id="main">
     <div class="search-container">

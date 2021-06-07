@@ -91,3 +91,34 @@ function contact()
 {
 	require("../view/contact.html");
 }
+
+function selectChatRoom() {
+    require("../view/selectChatRoom.php");
+}
+
+function chatRoom() {
+    require("../view/ChatRoom.php");
+}
+
+function sendMessageController()
+{
+    $messageContent = htmlspecialchars($_POST['messageInput']);
+    $idRoom = htmlspecialchars($_POST['idRoom']);
+    $idUser = $_SESSION['id'];
+    sendMessage($messageContent, $idRoom, $idUser);
+    header('Location: ../public/index.php?action=chatRoom&idRoom=' . $idRoom . '');
+}
+
+function deleteMessageController() {
+    $messageId= htmlspecialchars($_GET['messageId']);
+    $idRoom = htmlspecialchars($_GET['idRoom']);
+    deleteMessage($messageId);
+    header('Location: ../public/index.php?action=chatRoom&idRoom=' . $idRoom . '');
+}
+
+function banUserFromRoomController() {
+    $userId = htmlspecialchars($_GET['userId']);
+    $idRoom = htmlspecialchars($_GET['idRoom']);
+    banUser($userId);
+    header('Location: ../public/index.php?action=chatRoom&idRoom=' . $idRoom . '');
+}

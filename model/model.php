@@ -368,7 +368,7 @@ function affSalonsDeDiscussions() {
             }
             echo("
            <div class='exempleSalon'>
-               <a href='chatRoom?idRoom=". $row["idRoom"] . "'><div class='nomSalon'>Salon " . $row["nameOfTheRoom"] . " >  </div></a>
+               <a href='?action=chatRoom&idRoom=". $row["idRoom"] . "'><div class='nomSalon'>Salon " . $row["nameOfTheRoom"] . " >  </div></a>
                 <div class='affMembreSalon'>Membre : " . $numberOfUsers . " </div>
             </div>
             ");
@@ -392,34 +392,34 @@ function getRoomInfo() {
     return "NoNameFound";
 }
 
-function getMessages($idActualUser) {
+function getMessages($idRoom) {
     $bdd = dataBaseConnection();
-    $idRoom = htmlspecialchars($_GET['idRoom']);
     $sqlSelectMessages = 'SELECT * FROM message WHERE idRoom = "'. $idRoom .'"';
     $queryMessage = $bdd->query($sqlSelectMessages);
-
     $queryUsersBelong = $bdd->prepare('SELECT * FROM user WHERE idUser = :idUser');
-	$_SESSION['credentialUser'] = 2;
-    if ($queryMessage != false) {
-        foreach ($queryMessage as $row) {
+    if (isset($_SESSION['id'])) {
+		$idActualUser = $_SESSION['id'];
+    		if ($queryMessage != false) {
+				foreach ($queryMessage as $row) {
 
-            $queryUsersBelong->bindParam(':idUser',$row["idUser"], PDO::PARAM_INT );
-            $queryUsersBelong->execute();
-            $rowUser = $queryUsersBelong->fetch();
+				$queryUsersBelong->bindParam(':idUser', $row["idUser"], PDO::PARAM_INT);
+				$queryUsersBelong->execute();
+				$rowUser = $queryUsersBelong->fetch();
+				if ($row["idUser"] == $idActualUser)
+					$messageClass = 'myMessages';
+				else
+					$messageClass = 'othersMessages';
 
-            if ($row["idUser"] == $idActualUser)
-                $messageClass = 'myMessages';
-            else
-                $messageClass = 'othersMessages';
+				echo("<div class='" . $messageClass . "'>
+         	           <div class='content'>" . $row['contentOfTheMessage'] . "</div>
+        	            <div class='peudo'>" . $rowUser['pseudoUser'] . $_SESSION['status'] ."</div>
+        	            <div class='time'>" . $row['datetimeSendMessage'] .   "</div>");
+				showDeleteButton($row['idMessage'], $idRoom);
+				showBanButton($row["idUser"], $idRoom);
+				echo "</div>";
 
-            echo("<div class='". $messageClass ."'>
-                    <div class='content'>". $row['contentOfTheMessage'] ."</div>
-                    <div class='peudo'>". $rowUser['pseudoUser'] ."</div>
-                    <div class='time'>". $row['datetimeSendMessage'] ."</div>");
-			showDeleteButton($row['idMessage'], $idRoom);
-			echo "</div>";
-
-        }
+		}
+	}
     }
 }
 
@@ -432,8 +432,13 @@ function sendMessage($content, $idRoom, $idUser) {
 }
 
 function showDeleteButton($idMessage,$idRoom) {
-	if (isset($_SESSION['credentialUser']) and $_SESSION['credentialUser']>=2) {
-		echo("<a class='deleteMessageButton' href='../controller/interfaceDeleteMessageController?messageId=$idMessage&idRoom=$idRoom'>Delete</a>");
+	if (isset($_SESSION['status']) and $_SESSION['status']>=2) {
+		echo("<a class='deleteMessageButton' href='?action=deleteMessage&messageId=$idMessage&idRoom=$idRoom'>Delete</a>");
+	}
+}
+function showBanButton($idUser,$idRoom) {
+	if (isset($_SESSION['status']) and $_SESSION['status']>=2) {
+		echo("<a class='deleteMessageButton' href='?action=banUserRoom&userId=$idUser&idRoom=$idRoom'>  Ban</a>");
 	}
 }
 
