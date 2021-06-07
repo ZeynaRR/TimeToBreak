@@ -50,10 +50,24 @@ try
 			case 'contact';
 				contact();
 			break;
+      case 'selectChatRoom':
+           electChatRoom();
+            break;
+            case 'chatRoom':
+                chatRoom();
+            break;
+            case 'sendMessage':
+                sendMessageController();
+            break;
+            case 'deleteMessage':
+                deleteMessageController();
+            break;
+            case 'banUserRoom':
+                banUserFromRoomController();
+            break;
 			case 'games';
 			    games();
 			break;
-
 		}
 	}
 }

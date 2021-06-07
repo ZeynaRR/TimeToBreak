@@ -70,6 +70,8 @@ function getAdmins()
 	return $req;
 }
 
+
+
 function getUserByMail(String $mail) {
     $bdd = dbConnect();
     $req = $bdd->prepare('SELECT * FROM user WHERE mailUser = ?');
@@ -80,6 +82,7 @@ function getUserByMail(String $mail) {
     );
     return $req->fetch();
 }
+
 
 function banUser($id)
 {
@@ -242,6 +245,7 @@ function updateDatabaseBreak(){
 	));
 }
 //-------------------------------------
+
 function isDataValidForSendingEmailToTimeToBreak(){
 	$isItDataCorrectForSendingMailToTTB=true;
 	if(isset($_POST["identifiant"])==false || empty($_POST["identifiant"])==true){
@@ -284,6 +288,7 @@ function generateEmailToAdminTimeToBreak(){
 	$mail->AltBody = 'HTML not supported';
 	$mail->send();
 }
+
 
 //---------------------------------------
 function generateEmailForInscriptionModerator(){
@@ -350,6 +355,7 @@ function isTheMailAlreadyUsed(){
 	return true;
 }
 
+
 function isThePseudoAlreadyUsed(){
 	$pseudoUser=htmlspecialchars($_POST["pseudo1"]);
 	$bdd=dataBaseConnection();
@@ -365,7 +371,118 @@ function isThePseudoAlreadyUsed(){
 	return true;
 }
 
+
+
+function generateArrayForEmail(){
+    $arrayForMailing[0]=htmlspecialchars($_POST["mail1"]);
+    $arrayForMailing[1]=htmlspecialchars($_POST["pseudo1"]);
+    return $arrayForMailing;
+}
+
+
+function affSalonsDeDiscussions() {
+    $bdd = dataBaseConnection();
+
+    $sqlSelectRooms = 'SELECT * FROM room';
+    $queryRooms = $bdd->query($sqlSelectRooms);
+
+    $queryUsersBelong = $bdd->prepare('SELECT * FROM belong WHERE idRoom = :idRoom');
+
+    if ($queryRooms != false){
+        foreach ($queryRooms as $row) {
+            $queryUsersBelong->bindParam(':idRoom',$row["idRoom"], PDO::PARAM_INT );
+            $queryUsersBelong->execute();
+            $numberOfUsers = 0;
+            if ($queryUsersBelong != false) {
+                $numberOfUsers = $queryUsersBelong->rowCount();
+            }
+            echo("
+           <div class='exempleSalon'>
+               <a href='?action=chatRoom&idRoom=". $row["idRoom"] . "'><div class='nomSalon'>Salon " . $row["nameOfTheRoom"] . " >  </div></a>
+                <div class='affMembreSalon'>Membre : " . $numberOfUsers . " </div>
+            </div>
+            ");
+        }
+    }
+    $bdd = null;
+}
+
+function getRoomInfo() {
+    $bdd = dataBaseConnection();
+    $idRoom = htmlspecialchars($_GET['idRoom']);
+    $sqlSelectRoom = 'SELECT * FROM room WHERE idRoom = "'.$idRoom.'"';
+    $queryRoom = $bdd->query($sqlSelectRoom);
+
+    if ($queryRoom != false) {
+        $row = $queryRoom->fetch();
+        $bdd = null;
+        return $row["nameOfTheRoom"];
+    }
+    $bdd = null;
+    return "NoNameFound";
+}
+
+function getMessages($idRoom) {
+    $bdd = dataBaseConnection();
+    $sqlSelectMessages = 'SELECT * FROM message WHERE idRoom = "'. $idRoom .'"';
+    $queryMessage = $bdd->query($sqlSelectMessages);
+    $queryUsersBelong = $bdd->prepare('SELECT * FROM user WHERE idUser = :idUser');
+    if (isset($_SESSION['id'])) {
+		$idActualUser = $_SESSION['id'];
+    		if ($queryMessage != false) {
+				foreach ($queryMessage as $row) {
+
+				$queryUsersBelong->bindParam(':idUser', $row["idUser"], PDO::PARAM_INT);
+				$queryUsersBelong->execute();
+				$rowUser = $queryUsersBelong->fetch();
+				if ($row["idUser"] == $idActualUser)
+					$messageClass = 'myMessages';
+				else
+					$messageClass = 'othersMessages';
+
+				echo("<div class='" . $messageClass . "'>
+         	           <div class='content'>" . $row['contentOfTheMessage'] . "</div>
+        	            <div class='peudo'>" . $rowUser['pseudoUser'] . $_SESSION['status'] ."</div>
+        	            <div class='time'>" . $row['datetimeSendMessage'] .   "</div>");
+				showDeleteButton($row['idMessage'], $idRoom);
+				showBanButton($row["idUser"], $idRoom);
+				echo "</div>";
+
+		}
+	}
+    }
+}
+
+function sendMessage($content, $idRoom, $idUser) {
+    $bdd = dataBaseConnection();
+    $sqlInsertMessage = 'INSERT INTO message (idRoom, idUser, contentOfTheMessage) VALUES (?,?,?)';
+    $queryInsertMessage = $bdd->prepare($sqlInsertMessage);
+    $queryInsertMessage->execute( [$idRoom, $idUser, $content]);
+	$bdd = null;
+}
+
+function showDeleteButton($idMessage,$idRoom) {
+	if (isset($_SESSION['status']) and $_SESSION['status']>=2) {
+		echo("<a class='deleteMessageButton' href='?action=deleteMessage&messageId=$idMessage&idRoom=$idRoom'>Delete</a>");
+	}
+}
+function showBanButton($idUser,$idRoom) {
+	if (isset($_SESSION['status']) and $_SESSION['status']>=2) {
+		echo("<a class='deleteMessageButton' href='?action=banUserRoom&userId=$idUser&idRoom=$idRoom'>  Ban</a>");
+	}
+}
+
+function deleteMessage($idMessage) {
+	$bdd = dataBaseConnection();
+	$queryDeleteMessage = $bdd->prepare("DELETE FROM message WHERE idMessage=:id");
+	$queryDeleteMessage->bindParam(":id", $idMessage, PDO::PARAM_INT);
+	$queryDeleteMessage->execute();
+	$bdd = null;
+}
+
 function getAllGames() {
     $bdd = dbConnect();
     return $bdd->query('SELECT * FROM game');
 }
+
+
