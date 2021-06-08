@@ -109,12 +109,12 @@ $(document).ready(function(){
 			}
 			
 			if(data==2){
-				alert("Desole. Ce nom ou ce pseudo est occupe");
+				alert("Désolé. Ce mail ou pseudo est déjà pris.");
 			}
 			
 			if(data==1){
 			 //The user have been inserted
-			 alert("Felicitation !!! Vous avez bien ete inscrit");
+			 alert("Félicitations ! Vous avez bien été inscrit.");
 			 $(location).attr('href',"../public/index.php?action=connection");
 
 			}
