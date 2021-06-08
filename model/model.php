@@ -10,7 +10,7 @@ require("../model/db_connect.php");
 
 //-----------------------------------------------------
 function dataBaseConnection(){
-	$bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', '');
+	$bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', 'Tinpl127.0.0.1');
 	return $bdd;
 }
 
@@ -135,6 +135,7 @@ function insertUserInTheDatabase(){
 	$pseudoUser=htmlspecialchars($_POST["pseudo1"]);
 	$mailUser=htmlspecialchars($_POST["mail1"]);
 	$passwordUser=htmlspecialchars($_POST["password1"]);
+	
 		
 	$hashedPassword=$res=password_hash($passwordUser,PASSWORD_DEFAULT);
 		
