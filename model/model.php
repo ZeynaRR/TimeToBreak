@@ -10,7 +10,7 @@ require("../model/db_connect.php");
 
 //-----------------------------------------------------
 function dataBaseConnection(){
-	$bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', 'Tinpl127.0.0.1');
+	$bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', '');
 	return $bdd;
 }
 
@@ -151,14 +151,15 @@ function insertUserInTheDatabase(){
 	$passwordUser=htmlspecialchars($_POST["password1"]);
 	
 		
-	$hashedPassword=$res=password_hash($passwordUser,PASSWORD_DEFAULT);
+	$hashedPassword=password_hash($passwordUser,PASSWORD_DEFAULT);
 		
-	$request = $bdd->prepare('INSERT INTO user (pseudoUser,mailUser,passwordUser,credentialUser) VALUES (:pseudoUser,:mailUser,:passwordUser,:credentialUser)');
+	$request = $bdd->prepare('INSERT INTO user (pseudoUser,mailUser,passwordUser,credentialUser,Ban) VALUES (:pseudoUser,:mailUser,:passwordUser,:credentialUser,:Ban)');
 	$request->execute(array(
 		'pseudoUser'=>$pseudoUser,
 		'mailUser' => $mailUser,
 		'passwordUser' => $hashedPassword,
 		'credentialUser' =>1,
+		'Ban'=>0,
 	));
 }
 
@@ -210,7 +211,7 @@ function insertIntoDatabaseNewBreak(){
 	
 	$req = $bdd->prepare('INSERT INTO break(idUser, datetimeBeginBreak, datetimeEndBreak, datetimeLastUpdate, nameOfTheBreak) VALUES(:idUser, :datetimeBeginBreak, :datetimeEndBreak, :datetimeLastUpdate, :nameOfTheBreak)');
 	$req->execute(array(
-		'idUser'=>118218,
+		'idUser'=>118218,//////////////////////////////////////////////////////////////////*********
 		'datetimeBeginBreak' => $datetimeBeginBreak,
 		'datetimeEndBreak' => $datetimeEndBreak,
 		'datetimeLastUpdate' =>$datetimeLastUpdate,
@@ -249,7 +250,7 @@ function updateDatabaseBreak(){
 		
 	$request = $bdd->prepare('UPDATE break SET idUser=:newIdUser, datetimeBeginBreak=:newDatetimeBeginBreak, datetimeEndBreak=:newDatetimeEndBreak, datetimeLastUpdate=:newDatetimeEndBreak, nameOfTheBreak=:newNameOfTheBreak WHERE idBreak='.htmlspecialchars($_GET['idBreak']));
 	$request->execute(array(
-		'newIdUser'=>118218,
+		'newIdUser'=>118218,///////////////////////////////////////////////////////--*-*-*-
 		'newDatetimeBeginBreak' => $datetimeBeginBreak,
 		'newDatetimeEndBreak' => $datetimeEndBreak,
 		'newDatetimeLastUpdate' =>$datetimeLastUpdate,
@@ -346,14 +347,15 @@ function insertModeratorInTheDatabase(){
 	$mailUser=htmlspecialchars($_POST["mail1"]);
 	$passwordUser=htmlspecialchars($_POST["password1"]);
 		
-	$hashedPassword=$res=password_hash($passwordUser,PASSWORD_DEFAULT);
+	$hashedPassword=password_hash($passwordUser,PASSWORD_DEFAULT);
 		
-	$request = $bdd->prepare('INSERT INTO user (pseudoUser,mailUser,passwordUser,credentialUser) VALUES (:pseudoUser,:mailUser,:passwordUser,:credentialUser)');
+	$request = $bdd->prepare('INSERT INTO user (pseudoUser,mailUser,passwordUser,credentialUser,Ban) VALUES (:pseudoUser,:mailUser,:passwordUser,:credentialUser,:Ban)');
 	$request->execute(array(
 		'pseudoUser'=>$pseudoUser,
 		'mailUser' => $mailUser,
 		'passwordUser' => $hashedPassword,
 		'credentialUser' =>2,
+		'Ban' =>0,
 	));
 	return 1;
 }

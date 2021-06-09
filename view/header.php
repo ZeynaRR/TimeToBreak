@@ -13,7 +13,7 @@
 
             <a href="?action=tdb"><img class="logoHome" src="../ressources/images/logoHome2.png" alt="logoHome"/></a>
 
-            <?php if(isset($_SESSION['id'])) { ?>
+            <?php if(isset($_SESSION['id'])) {?>
                 <img class="logoDisconnection" src="../ressources/images/logoDisconnection.png" alt="logoHome"/>
                 <a class="disconnection" href="?action=disconnect" style="text-decoration: none">Déconnexion</a>
             <?php }
