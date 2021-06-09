@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="fr">
-<?php require("../model/model.php");?>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
@@ -37,9 +36,13 @@
 
 </html>
 <?php
+function dataBaseConnection2(){
+	$bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', '');
+	return $bdd;
+}
 function displayTheCorrepondingBreak()
 {
-	$bdd = dataBaseConnection();
+	$bdd = dataBaseConnection2();
 	$idBreak = htmlspecialchars($_GET['idBreak']);
 	$request = $bdd->prepare('SELECT * FROM break WHERE idBreak = ?');
 	$request->execute(array($idBreak));
