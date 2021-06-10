@@ -506,15 +506,18 @@ function getAllGames() {
 }
 
 
-function selectAllThePauseInThe1MinArea($statement){
-	/**Attention dependant du serveur donc du BIOS**/
+function selectAllThePauseInThe1MinAreaAndSendNotification($statement){
 	$bdd = dataBaseConnection();
 	$request = $bdd->prepare($statement);
 	$request->execute(array());
 	while ($data = $request->fetch()) {
-		$mailUserToSendNotif=selectMailCorrespondantUser($data["idUser"]);
-		$pseudoUserToSendNotif=selectPseudoCorrespondantUser($data["idUser"]);
-		sendNotificationMailForBreak($mailUserToSendNotif,$pseudoUserToSendNotif);
+		$varRes=should_I_Send_a_Email($data["idBreak"]);
+		if($varRes==1 || $varRes==2){
+			$mailUserToSendNotif=selectMailCorrespondantUser($data["idUser"]);
+			$pseudoUserToSendNotif=selectPseudoCorrespondantUser($data["idUser"]);
+			sendNotificationMailForBreak($mailUserToSendNotif,$pseudoUserToSendNotif);
+			successIncrementNumberEmail($data["idBreak"]);
+		}
 	}
 }
 	
@@ -572,5 +575,53 @@ function runningMailingNotificationForBreakBegin(){
 	$currentDateTimeIn1Min=$date->format("Y-m-d H:i:s");
 	
 	$statement="SELECT * FROM break WHERE `datetimeBeginBreak` BETWEEN '$currentDateTime' AND '$currentDateTimeIn1Min'";
-	selectAllThePauseInThe1MinArea($statement);
+	selectAllThePauseInThe1MinAreaAndSendNotification($statement);
+}
+
+/////////////////////
+function should_I_Send_a_Email($idBreak){
+	$bdd=dataBaseConnection();
+	$request=$bdd->query('SELECT * FROM mailingnotification WHERE idBreak='.$idBreak);
+	$data=$request->fetch();
+	if(is_null($data['numberMail'])){
+		return 2;
+	}
+	else if($data['numberMail']==1){
+		return 1;
+	}
+	else{
+		return 0;
+	}
+}
+
+function successIncrementNumberEmail($idBreak){
+	$bdd=dataBaseConnection();
+	$request=$bdd->query('SELECT * FROM mailingnotification WHERE idBreak='.$idBreak);
+	$data=$request->fetch();
+	echo "ici";
+	if(is_null($data['numberMail'])){
+		incrementByInsertingNumberEmail($idBreak);
+		echo "success";
+	}
+	else if($data['numberMail']==1){
+		echo "la";
+		incrementByUpdatingNumberEmail($idBreak);
+	}
+}
+	
+function incrementByInsertingNumberEmail($idBreak){
+	$bdd=dataBaseConnection();
+	$request = $bdd->prepare('INSERT INTO mailingnotification (idBreak,numberMail) VALUES (:idBreak,:numberMail)');
+	$request->execute(array(
+		'idBreak'=>$idBreak,
+		'numberMail' => 1,
+	));
+}
+	
+function incrementByUpdatingNumberEmail($idBreak){
+	$bdd=dataBaseConnection();
+	$request = $bdd->prepare('UPDATE mailingnotification SET numberMail=:newNumberMail WHERE idBreak='.$idBreak);
+	$request->execute(array(
+		'newNumberMail' => 2,
+	));
 }
