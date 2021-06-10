@@ -8,13 +8,6 @@ a:hover
 	text-decoration: none;
 }
 
-#main_title
-{
-	color: #df7878;
-	text-align: center;
-	font-size: 90px;
-	margin: 2%;
-}
 
 .contain
 {
@@ -107,4 +100,7 @@ a:hover
 	background-image : linear-gradient(to right,#649cac, #649cac 1%, #e0eaff 1%);
 }
 
+a{
+	text-decoration: none !important;
+}
 

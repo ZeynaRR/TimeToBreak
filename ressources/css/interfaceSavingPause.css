@@ -13,7 +13,6 @@ input[type="date"],input[type="time"], input[type="text"] {
     
 }
 #divFormEnregistrement{
-    width: 70em;
     border: 10px solid var(--rose);
     padding: 2em;
     border-radius: var(--arrondiInput);
@@ -26,9 +25,19 @@ input[type="date"],input[type="time"], input[type="text"] {
     border: 1px solid transparent;
     font-size: 15px;
     height: 2em;
+    width: max-content;
 }
 
 #enregistrement:hover {
     background-color:#dddddd;
     color: var(--rose);
+}
+
+#formSavingBreaks{
+    display : flex;
+    flex-direction : column; 
+}
+
+.col-sm-6{
+    width:100%;
 }

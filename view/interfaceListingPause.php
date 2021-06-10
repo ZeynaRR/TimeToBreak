@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
 	<title>Mes pauses</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="../ressources/css/generalCss.css">
 	<link rel="stylesheet" href="../ressources/css/interfaceListingPause.css">
@@ -16,11 +17,12 @@
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
 </head>
+
 <body>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 
 	<?php include("../view/header.php"); ?>
-	
+
 	<h1>Mes pauses:</h1>
 	<section class="container">
 		<div class="row">
@@ -40,6 +42,8 @@
 							</th>
 							<th>
 								Nom de la pause
+							</th>
+							<th>
 							</th>
 							<th>
 							</th>
@@ -85,6 +89,8 @@ function selectMyPauseFromDataBaseAndDisplayIt()
 			</td>
 			<td>
 				<a class="fas fa-edit" id="updateBreak" href="../public/index.php?action=updateBreak&idBreak=<?php echo $data["idBreak"]; ?>"></a>
+			</td>
+			<td>
 				<a class="far fa-trash-alt" id="deleteBreak" href="" onclick="deleteByIdBreak(<?php echo $data["idBreak"]; ?>)"></a>
 			</td>
 		</tr>
@@ -97,6 +103,7 @@ function selectMyPauseFromDataBaseAndDisplayIt()
 </script>
 <script type="text/javascript" src="../ressources/js/interfaceListingPause.js">
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 
 </html>
