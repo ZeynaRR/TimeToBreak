@@ -59,7 +59,9 @@
 
 </html>
 <?php
+
 runningMailingNotificationForBreakBegin();
+autodestructionBreakFinishedUsingDateTimeEndBreak();
 
 function selectMyPauseFromDataBaseAndDisplayIt()
 {

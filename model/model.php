@@ -625,3 +625,10 @@ function incrementByUpdatingNumberEmail($idBreak){
 		'newNumberMail' => 2,
 	));
 }
+
+////************************
+function autodestructionBreakFinishedUsingDateTimeEndBreak(){
+	$bdd = dataBaseConnection();
+	$request=$bdd->prepare("DELETE FROM `break` WHERE `datetimeEndBreak`<=NOW()");
+	$request->execute(array());
+}
