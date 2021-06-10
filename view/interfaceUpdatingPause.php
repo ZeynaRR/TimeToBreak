@@ -36,6 +36,7 @@
 
 </html>
 <?php
+//********NO MVC FOR SOME REASONS PURPOSES----
 function dataBaseConnection2(){
 	$bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', '');
 	return $bdd;

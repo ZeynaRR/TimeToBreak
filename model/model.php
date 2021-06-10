@@ -506,3 +506,71 @@ function getAllGames() {
 }
 
 
+function selectAllThePauseInThe1MinArea($statement){
+	/**Attention dependant du serveur donc du BIOS**/
+	$bdd = dataBaseConnection();
+	$request = $bdd->prepare($statement);
+	$request->execute(array());
+	while ($data = $request->fetch()) {
+		$mailUserToSendNotif=selectMailCorrespondantUser($data["idUser"]);
+		$pseudoUserToSendNotif=selectPseudoCorrespondantUser($data["idUser"]);
+		sendNotificationMailForBreak($mailUserToSendNotif,$pseudoUserToSendNotif);
+	}
+}
+	
+function selectMailCorrespondantUser($idUser){
+	$bdd=dataBaseConnection();
+	$request=$bdd->query('SELECT mailUser FROM user WHERE idUser='.$idUser);
+	$data=$request->fetch();
+	return $data["mailUser"];
+}
+
+function selectPseudoCorrespondantUser($idUser){
+	$bdd=dataBaseConnection();
+	$request=$bdd->query('SELECT pseudoUser FROM user WHERE idUser='.$idUser);
+	$data=$request->fetch();
+	return $data["pseudoUser"];
+}
+	
+function sendNotificationMailForBreak($mailUser,$pseudoUserToSendNotif){
+	$mail = new PHPMailer;
+	$mail->isSMTP(); 
+	$mail->SMTPDebug = 2; 
+	$mail->Host = "smtp.gmail.com"; 
+	$mail->Port = 587; // typically 587 
+	$mail->SMTPSecure = 'tls'; // ssl is depracated
+	$mail->SMTPAuth = true;
+	$mail->Username = "geai4dai@gmail.com";
+	$mail->Password = "blaAPPL313d";
+	$mail->setFrom("geai4dai@gmail.com", "geai");
+	$mail->addAddress($mailUser, $mailUser);
+	$mail->Subject = 'C est le moment de se faire petite pause!';
+	$mail->msgHTML('Hi,'.$pseudoUserToSendNotif.'<br>
+					C est le moment de faire un petit break avec TimeToBreak<br>
+					<br>L equipe TimeToBreak'); // remove if you do not want to send HTML email
+	$mail->AltBody = 'HTML not supported';
+
+	$mail->send();
+}
+
+function runningMailingNotificationForBreakBegin(){
+	date_default_timezone_set('Europe/Paris');
+	
+	$nextMin = time() + 12*60*60;//decalage de 12 heures
+	
+	
+	$date = new DateTime();
+	
+	//current time
+	$var2= strtotime('NOW');
+	$date->setTimestamp($var2);
+	$currentDateTime=$date->format("Y-m-d H:i:s");
+	
+	//1min later
+	$var= strtotime('NOW + 1 min');
+	$date->setTimestamp($var);
+	$currentDateTimeIn1Min=$date->format("Y-m-d H:i:s");
+	
+	$statement="SELECT * FROM break WHERE `datetimeBeginBreak` BETWEEN '$currentDateTime' AND '$currentDateTimeIn1Min'";
+	selectAllThePauseInThe1MinArea($statement);
+}
