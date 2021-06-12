@@ -23,7 +23,7 @@ h1{
     margin: auto;
     padding: 2em;
     border-radius: var(--arrondiInput);
-    column-count: 2;
+    /*column-count: 2;*/
 }
 
 .exempleSalon{
@@ -31,7 +31,6 @@ h1{
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
-    margin-left: 30px;
 }
 
 .nomSalon{
@@ -43,4 +42,9 @@ h1{
 .affMembreSalon{
     color: white;
     padding: 10px;
+}
+
+.linkRoom{
+    color: white;
+    text-decoration: none;
 }

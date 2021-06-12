@@ -10,7 +10,7 @@ $(document).ready(function(){
 	var currentUrl = window.location.href;
 	var url = new URL(currentUrl);
 	var idBreak = url.searchParams.get("idBreak");
-		 
+	
 	addressController="../controller/interfaceUpdatingPauseController.php?idBreak="+idBreak;
 	$.post(addressController ,
 	{
@@ -28,7 +28,7 @@ $(document).ready(function(){
 		if(data==1){
 			//The break have been updated
 			alert("Modification prise en compte");
-			$(location).attr('href',"interfaceListingPause.php");
+			$(location).attr('href',"../public/index.php?action=breakList");
 		}
 	});
 	});

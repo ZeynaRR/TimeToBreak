@@ -8,8 +8,8 @@
     <title>Suggestions de jeux</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <link href="../ressources/css/generalCss.css" rel="stylesheet">
-    <link href="../ressources/css/gameInterface.css" rel="stylesheet">
+    <link href="css/generalCss.css" rel="stylesheet">
+    <link href="css/gameInterface.css" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -23,16 +23,16 @@
     <?php if ($status == "1" && $isTime) {
         include("header.php"); ?>
         <h1>Suggestions de jeux pour vous ! </h1><br>
-        <div class="gamesList container-fluid">
-                <?php
-                while ($game = $gamesList->fetch()) { ?>
-                <div class="row">
-                    <div class="game">
-                        <div class="col text-center">
+        <div class="gamesList container">
+        <div class="row">
+            <?php
+            while ($game = $gamesList->fetch()) { ?>
+                    <div class="game col-6 ">
+                        <div class="text-center">
                             <h3><?php echo $game['nameOfTheGame'] ?></h3>
+                            <div class="row">
                             <img src="<?php echo $game['imageGame'] ?>" alt="name of the game" class="gameImage" />
-                        </div>
-                        <div class="co text-center">
+                            </div>
                             <p class="theme">Thème(s) : <?php echo $game['tags'] ?></p>
                             <p class="gameComment">
                                 <?php echo $game['contentOfTheGame'] ?>
@@ -40,9 +40,9 @@
                             <a class="play" href="<?php echo $game['linkToTheGame'] ?>" style="text-decoration: none"><button class="play">Jouer !</button></a>
                         </div>
                     </div>
-                    </div>
-                <?php } ?>
-            
+            <?php } ?>
+            </div>
+
         </div>
     <?php } else {
         header("Location: ?action=tdb");

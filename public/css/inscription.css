@@ -68,3 +68,7 @@ p.erreurs:empty, p#warning:empty{
     max-width: 460px;
 	background-image: url('https://i.imgur.com/Z8q7ww7.png');
 }
+
+.form-group{
+    margin-bottom: 1em;
+}
