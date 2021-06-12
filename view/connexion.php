@@ -20,9 +20,7 @@
 </head>
 
 <body>
-    <?php if (!isset($_SESSION['id'])) {
-        include("header.php");
-    ?>
+    <?php include("header.php"); ?>
         <div id="divForm" class="container-sm">
             <div class="row text-center">
                 <h1>Connexion</h1>
@@ -35,6 +33,7 @@
                             <input type="password" name="password" id="password" />
                         </div>
                         <input name="passwordView" type="image" src="images/mdp.png" id="masque" title="Masquer/démasquer le mot de passe pour vérifier" onclick="displayPassword(); return false;">
+
                        <br>
                         <?php
                         if (isset($error) && !empty($error)) {
@@ -52,10 +51,6 @@
         </div>
         <script type="text/javascript" src="js/connexion.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <?php } else {
-        header("Location: ?action=tdb");
-    }
-    ?>
 
 </body>
 <?php include("footer.php");?>

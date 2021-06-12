@@ -25,7 +25,7 @@
 	<div id="divFormEnregistrement" class="container-sm">
 		<div class="row text-center">
 			<h1>Enregistrement d'une pause</h1>
-				<form action="../controller/interfaceSavingPauseController.php" method="post" id="formSavingBreaks">
+				<form action="../public/index.php?action=addBreak" method="post" id="formSavingBreaks">
 					<label for="dateOfTheBreak">Date pause</label>
 					<div class="form-group centered">
 						<div class="col-sm-6">

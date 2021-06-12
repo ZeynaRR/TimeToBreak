@@ -18,7 +18,7 @@
     background-color: var(--bgInput);
     border-radius: var(--arrondiInput);
     border: 1px solid var(--bgInput);
-    width: 80%;
+    width: 45%;
 }
 
 input[name="passwordView"] {

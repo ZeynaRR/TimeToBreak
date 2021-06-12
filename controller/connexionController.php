@@ -20,7 +20,11 @@ function validateAuthentication()
     return $isUser;
 }
 function connection() {
-    require("../view/connexion.php");
+    if (!isset($_SESSION['id'])) {
+        require("../view/connexion.php");
+    } else {
+        header("Location: ?action=tdb");
+    }
 }
 function connect() {
     if (validateAuthentication()) {

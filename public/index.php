@@ -31,6 +31,9 @@ try
             break;
             case 'createBreak':
                 createBreak();
+			case 'addBreak':
+				controllerInterfaceSavingPause();
+			break;
             break;
             case 'breakList':
                 breakList();

@@ -24,10 +24,11 @@
     <div id="divForm" class="container-sm">
         <div class="row text-center">
             <form id='form' method="post" onsubmit="return valideFormulaire(this)">
-                <label>Adresse mail</label>
+                <p class="erreurs" id="erreurMail"></p>
+				<label>Adresse mail</label>
                 <div class="form-group centered">
                     <div class="col-sm-6">
-                        <input type="email" name='mail' id="mail" required>
+                        <input type="email" name='mail' id="mail" required onkeyup="(emailConforme(this.form))">
                     </div>
                 </div>
 

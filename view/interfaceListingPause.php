@@ -50,63 +50,47 @@
 						</tr>
 					</thead>
 					<tbody>
-
+					<?php
+						runningMailingNotificationForBreakBegin();
+						autodestructionBreakFinishedUsingDateTimeEndBreak();
+						while ($data = $getBreaks->fetch()) {
+					?>
+							<tr>
+								<td>
+									<?php
+									echo $data["datetimeBeginBreak"];
+									?>
+								</td>
+								<td>
+									<?php
+									echo $data["datetimeEndBreak"];
+									?>
+								</td>
+								<td>
+									<?php
+									echo $data["nameOfTheBreak"];
+									?>
+								</td>
+								<td>
+									<a class="fas fa-edit" id="updateBreak" href="../public/index.php?action=updateBreak&idBreak=<?php echo $data["idBreak"]; ?>"></a>
+								</td>
+								<td>
+									<a class="far fa-trash-alt" id="deleteBreak" href="" onclick="deleteByIdBreak(<?php echo $data["idBreak"]; ?>)"></a>
+								</td>
+							</tr>
 						<?php
-						selectMyPauseFromDataBaseAndDisplayIt()
+							}					
 						?>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</section>
-</body>
-
-</html>
-<?php
-
-runningMailingNotificationForBreakBegin();
-autodestructionBreakFinishedUsingDateTimeEndBreak();
-
-function selectMyPauseFromDataBaseAndDisplayIt()
-{
-	$bdd = dbConnect();
-	$request = $bdd->prepare('SELECT * FROM break');
-	$request->execute(array());
-	while ($data = $request->fetch()) {
-?>
-		<tr>
-			<td>
-				<?php
-				echo $data["datetimeBeginBreak"];
-				?>
-			</td>
-			<td>
-				<?php
-				echo $data["datetimeEndBreak"];
-				?>
-			</td>
-			<td>
-				<?php
-				echo $data["nameOfTheBreak"];
-				?>
-			</td>
-			<td>
-				<a class="fas fa-edit" id="updateBreak" href="../public/index.php?action=updateBreak&idBreak=<?php echo $data["idBreak"]; ?>"></a>
-			</td>
-			<td>
-				<a class="far fa-trash-alt" id="deleteBreak" href="" onclick="deleteByIdBreak(<?php echo $data["idBreak"]; ?>)"></a>
-			</td>
-		</tr>
-<?php
-	}
-}
-?>
 <script type="text/javascript" src="js/inscription.js">
 </script>
 <script type="text/javascript" src="js/interfaceListingPause.js">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
-
 <?php include("footer.php");?>
 </html>
