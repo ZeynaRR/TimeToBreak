@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'arial-nova';
+    src: url('arial-nova.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('font/arial-nova.ttf') format('ttf');
+    /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
+.dashboard {
+    background: #4A707C;
+    height: 100vh;
+}
+
+.profile {
+    padding: 25%;
+}
+
+.form1 {
+    padding: 10%;
+    background: #6299AB;
+    margin: 74px -5px;
+}
+
+.form1 label {
+    display: block;
+}
+
+.form1 input {
+    padding: 5px 17px;
+    border-radius: 8px;
+    border: none;
+}
+
+.form1 button {
+    border: none;
+    border-radius: 12px;
+    margin-left: 20px;
+    padding: 5px 17px;
+    background: #4F4F4F;
+    color: white;
+}
+
+.form2 {
+    padding: 10%;
+    background: #E98182;
+    margin: 0 -5px;
+}
+
+.form2 button {
+    border: none;
+    border-radius: 12px;
+    margin-left: 20px;
+    padding: 5px 17px;
+    background: #e65153;
+    color: white;
+}
+
+.form2 h2 {
+    margin-bottom: 46px;
+    text-align: center;
+}
+
+.form2 select {
+    width: 180px;
+    padding: 5px;
+    border-radius: 8px;
+    background: #dc3573;
+    border: none;
+}
+
+.dropdownMenuButton {
+    background-color: white;
+}

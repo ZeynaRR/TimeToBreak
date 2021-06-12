@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Inscription</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../ressources/css/generalCss.css">
-    <link rel="stylesheet" type="text/css" href="../ressources/css/inscription.css">
+    <link rel="stylesheet" type="text/css" href="css/generalCss.css">
+    <link rel="stylesheet" type="text/css" href="css/inscription.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -51,7 +51,7 @@
                         <input type="password" name="motdepasse2" placeholder="Confirmez le mot de passe" id="motdepasse2" onblur="motDePasseCorrespondant(this.form)" required>
                     </div>
                 </div>
-                <div class="form-group centered"> <input type="image" src="../ressources/images/mdp.png" id="masque" title="Masquer/demasquer le mot de passe pour vérifier" onclick="affichageMotDePasse();return false;"> </div>
+                <div class="form-group centered"> <input type="image" src="images/mdp.png" id="masque" title="Masquer/demasquer le mot de passe pour vérifier" onclick="affichageMotDePasse();return false;"> </div>
 
 
 
@@ -70,7 +70,7 @@
         </div>
     </div>
     <footer></footer>
-    <script type="text/javascript" src="../ressources/js/inscription.js">
+    <script type="text/javascript" src="js/inscription.js">
     </script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
