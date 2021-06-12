@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+
+<html lang="fr">
 <head>
     <meta charset="utf-8" />
     <title>Mentions Légales</title>
@@ -13,7 +16,8 @@
 </head>
 
 <body>
-    <header></header>
+<?php   include("header.php");
+    ?>
     <h1>
         Conditions générales d'utilisation de l'application web TimeToBreak
     </h1>
@@ -195,5 +199,7 @@
             Issy-Les-Moulineaux sont compétents pour régler le contentieux.
         </p>
     </div>
-    <footer></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
+<?php include("footer.php");?>
+</html>

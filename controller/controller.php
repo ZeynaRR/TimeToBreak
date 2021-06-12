@@ -86,7 +86,12 @@ function updateBreak()
 
 function contact()
 {
-	require("../view/contact.html");
+	require("../view/contact.php");
+}
+
+function mentionsLegales()
+{
+	require("../view/mentionsLegales.php");
 }
 
 
@@ -150,3 +155,4 @@ function profile() {
         header("Location: ?action=connection");
     }
 }
+
