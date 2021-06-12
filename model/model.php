@@ -249,9 +249,8 @@ function updateDatabaseBreak()
 		$nameOfTheBreak = htmlspecialchars($_POST["nameOfTheBreak1"]);
 	}
 
-	$request = $bdd->prepare('UPDATE break SET idUser=:newIdUser, datetimeBeginBreak=:newDatetimeBeginBreak, datetimeEndBreak=:newDatetimeEndBreak, datetimeLastUpdate=:newDatetimeEndBreak, nameOfTheBreak=:newNameOfTheBreak WHERE idBreak=' . htmlspecialchars($_GET['idBreak']));
+	$request = $bdd->prepare('UPDATE break SET datetimeBeginBreak=:newDatetimeBeginBreak, datetimeEndBreak=:newDatetimeEndBreak, datetimeLastUpdate=:newDatetimeEndBreak, nameOfTheBreak=:newNameOfTheBreak WHERE idBreak=' . htmlspecialchars($_GET['idBreak']));
 	$request->execute(array(
-		'newIdUser' => 118218, ///////////////////////////////////////////////////////--*-*-*-
 		'newDatetimeBeginBreak' => $datetimeBeginBreak,
 		'newDatetimeEndBreak' => $datetimeEndBreak,
 		'newDatetimeLastUpdate' => $datetimeLastUpdate,
