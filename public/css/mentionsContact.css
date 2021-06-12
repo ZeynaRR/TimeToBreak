@@ -8,7 +8,7 @@ input[type="text"],
 select[name="objet"],
 textarea[name="Demande"] {
     background-color: var(--bgInput);
-    width: 22em;
+    width:75%;
     border-radius: var(--arrondiInput);
     border: 1px solid transparent;
 }

@@ -53,6 +53,9 @@ try
 			case 'contact';
 				contact();
 			break;
+			case 'mentionsLegales';
+				mentionsLegales();
+			break;
             case 'selectChatRoom':
                 selectChatRoom();
             break;
