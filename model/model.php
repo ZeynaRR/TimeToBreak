@@ -18,6 +18,8 @@ function dataBaseConnection(){
 function getBreaksTime()
 {
     $allBreaks = getAllBreaks();
+	$breaksTime['begin'][]= "";
+	$breaksTime['end'][]="";
     foreach($allBreaks as $break) {
         $breaksTime['begin'][] = $break['datetimeBeginBreak'];
         $breaksTime['end'][] = $break['datetimeEndBreak'];
@@ -174,15 +176,7 @@ function deleteById(){
 }
 
 //-----------------------------------------------------
-function controllerInterfaceSavingPause(){
-	if(isDataCorrectForInterfaceSavingPause()){
-		insertIntoDatabaseNewBreak();
-	}
-	else{
-		header('Location:../public/index.php?action=createBreak');
-	}
-}
-	
+
 function isDataCorrectForInterfaceSavingPause(){
 	$isDataCorrectForInterfaceSavingPause=true;
 	if(isset($_POST["dateOfTheBreak"])==false || empty($_POST["dateOfTheBreak"])==true){
@@ -198,7 +192,7 @@ function isDataCorrectForInterfaceSavingPause(){
 }
 	
 	
-function insertIntoDatabaseNewBreak(){
+function insertIntoDatabaseNewBreak($idUser){
 	$bdd = dataBaseConnection();
 	$datetimeBeginBreak=htmlspecialchars($_POST["dateOfTheBreak"]).' '.htmlspecialchars($_POST["beginOfTheBreak"]);
 	$datetimeEndBreak=htmlspecialchars($_POST["dateOfTheBreak"]).' '.htmlspecialchars($_POST["endOfTheBreak"]);
@@ -211,7 +205,7 @@ function insertIntoDatabaseNewBreak(){
 	
 	$req = $bdd->prepare('INSERT INTO break(idUser, datetimeBeginBreak, datetimeEndBreak, datetimeLastUpdate, nameOfTheBreak) VALUES(:idUser, :datetimeBeginBreak, :datetimeEndBreak, :datetimeLastUpdate, :nameOfTheBreak)');
 	$req->execute(array(
-		'idUser'=>118218,//////////////////////////////////////////////////////////////////*********
+		'idUser'=>$idUser,//////////////////////////////////////////////////////////////////*********
 		'datetimeBeginBreak' => $datetimeBeginBreak,
 		'datetimeEndBreak' => $datetimeEndBreak,
 		'datetimeLastUpdate' =>$datetimeLastUpdate,
@@ -262,6 +256,13 @@ function getAllBreaks() {
     $bdd = dbConnect();
     $breaksList = $bdd->query('SELECT * FROM break');
     return $breaksList;
+}
+
+function getAllBreaksByIdUser($idUser){
+    $bdd = dbConnect();
+    $request = $bdd->prepare('SELECT * FROM break WHERE idUser=?');
+	$request->execute(array($idUser));
+	return $request;
 }
 //-------------------------------------
 
@@ -539,7 +540,7 @@ function sendNotificationMailForBreak($mailUser,$pseudoUserToSendNotif){
 	$mail = new PHPMailer;
 	$mail->isSMTP(); 
 	$mail->SMTPDebug = 2; 
-	$mail->Host = "smtp.gmail.com"; 
+	$mail->Host = "smtp.gmail.com";
 	$mail->Port = 587; // typically 587 
 	$mail->SMTPSecure = 'tls'; // ssl is depracated
 	$mail->SMTPAuth = true;
@@ -547,7 +548,7 @@ function sendNotificationMailForBreak($mailUser,$pseudoUserToSendNotif){
 	$mail->Password = "blaAPPL313d";
 	$mail->setFrom("geai4dai@gmail.com", "geai");
 	$mail->addAddress($mailUser, $mailUser);
-	$mail->Subject = 'C est le moment de se faire petite pause!';
+	$mail->Subject = 'C est le moment de se faire une petite pause!';
 	$mail->msgHTML('Hi,'.$pseudoUserToSendNotif.'<br>
 					C est le moment de faire un petit break avec TimeToBreak<br>
 					<br>L equipe TimeToBreak'); // remove if you do not want to send HTML email
@@ -598,13 +599,10 @@ function successIncrementNumberEmail($idBreak){
 	$bdd=dataBaseConnection();
 	$request=$bdd->query('SELECT * FROM mailingnotification WHERE idBreak='.$idBreak);
 	$data=$request->fetch();
-	echo "ici";
 	if(is_null($data['numberMail'])){
 		incrementByInsertingNumberEmail($idBreak);
-		echo "success";
 	}
 	else if($data['numberMail']==1){
-		echo "la";
 		incrementByUpdatingNumberEmail($idBreak);
 	}
 }

@@ -49,14 +49,32 @@ function disconnect()
 	header("Location: ?action=connection");
 }
 
+function controllerInterfaceSavingPause(){
+	if(isDataCorrectForInterfaceSavingPause()){
+		$sessionId=$_SESSION["id"];
+		insertIntoDatabaseNewBreak($sessionId);
+	}
+}
+
 function createBreak()
 {
-	require("../view/interfaceSavingPause.php");
+	if(isset($_SESSION["id"])){
+		require("../view/interfaceSavingPause.php");
+	}else{
+		header("'Location: ?action=connection");
+	}
 }
 
 function breakList()
 {
-	require("../view/interfaceListingPause.php");
+	if(isset($_SESSION["id"])){
+		$sessionId=$_SESSION["id"];
+		$getBreaks=getAllBreaksByIdUser($sessionId);
+		require("../view/interfaceListingPause.php");
+	}
+	else{
+		header("'Location: ?action=connection");
+	}
 }
 
 function inscription()

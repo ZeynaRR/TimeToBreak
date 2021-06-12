@@ -1,3 +1,15 @@
+function emailConforme(formulaire){
+	var text="";
+	const valeurEmail=formulaire.mail.value;
+	if(!(/^[a-z0-9._-]+@[a-z0-9-]+\.[a-z]{2,6}$/.test(valeurEmail))){
+		text+="L adresse mail n'est pas valide";
+	}
+	document.getElementById('erreurMail').innerHTML = text;
+
+	return (text.length == 0) ? true : false;
+}
+
+
 function motDePasseConforme(formulaire) {
 
 
@@ -26,7 +38,7 @@ function motDePasseConforme(formulaire) {
 		text += " Votre mot de passe ne doit pas contenir d'espace." + "<br>";
 	}
 
-
+	
 	document.getElementById('erreurs').innerHTML = text;
 
 	return (text.length == 0) ? true : false;
@@ -80,7 +92,7 @@ function motDePasseCorrespondant(formulaire) {
 }
 
 function valideFormulaire(formulaire) {
-	return (motDePasseCorrespondant(formulaire));
+	return (motDePasseCorrespondant(formulaire)&&emailConforme(formulaire));
 }
 
 
