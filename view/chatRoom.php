@@ -8,7 +8,12 @@
     <link rel="stylesheet" type="text/css" href="../ressources/css/generalCss.css">
     <link rel="stylesheet" type="text/css" href="../ressources/css/chatRoom.css">
 </head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    setInterval(function(){
+        window.location.reload();
+    }, 3000);
 
+</script>
 <body>
 <?php if (isset($_SESSION['id'])) {
     include("header.php");
@@ -19,7 +24,6 @@
     <div id="chatBox">
         <div id="messages">
             <?php getMessages(htmlspecialchars($_GET['idRoom'])); ?>
-
         </div>
         <form id="sendMessage" method="post" action="?action=sendMessage">
             <input type="hidden" value="<?php echo htmlspecialchars($_GET['idRoom'])?>" name="idRoom" id="idRoom">
@@ -31,4 +35,4 @@
 </body>
 </html>
 
-<script
+
