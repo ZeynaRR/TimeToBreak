@@ -257,6 +257,25 @@ function updateDatabaseBreak()
 		'newNameOfTheBreak' => $nameOfTheBreak,
 	));
 }
+function extractYearsFromDatetime($myDatetime)
+{
+	$tableTime = explode(" ", $myDatetime);
+	return $tableTime[0];
+}
+function extractHoursMinFromDatetime($myDatetime)
+{
+	$tableTime = explode(" ", $myDatetime);
+	return $tableTime[1];
+}
+
+function getTheBreakByTheId($idBreak)
+{
+	$bdd = dataBaseConnection();
+	$request = $bdd->prepare('SELECT * FROM break WHERE idBreak = ?');
+	$request->execute(array($idBreak));
+	$data = $request->fetch();
+	return $data;
+}
 
 function getAllBreaks()
 {

@@ -99,7 +99,14 @@ function interfaceListingPause()
 
 function updateBreak()
 {
-	require("../view/interfaceUpdatingPause.php");
+	if(isset($_SESSION["id"])){
+		$idBreak = htmlspecialchars($_GET['idBreak']);
+		$data=getTheBreakByTheId($idBreak);
+		require("../view/interfaceUpdatingPause.php");
+	}
+	else{
+		header("'Location: ?action=connection");
+	}
 }
 
 function contact()
