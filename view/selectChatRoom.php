@@ -18,13 +18,7 @@
 <h1> Salons de Discussions </h1>
 <div class="container-fluid">
 <div id="main">
-    <div class="search-container">
-      <form action="">
-          <button type="submit"><img id="searchIcon" src="../ressources/images/searchIcon.png" alt="Search"></button>
-          <input type="text" placeholder="Search.." name="search">
-       </form>
-    </div>
-    <div id="DivSalons">
+    <div id="DivSalons" class='row'>
        <?php affSalonsDeDiscussions();?>
     </div>
 </div>

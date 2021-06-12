@@ -8,39 +8,32 @@ h1{
 #chatBox{
     border: 10px solid var(--rose);
     margin: auto;
-    width: 55em;
-    height: 35em;
     padding: 2em;
     border-radius: var(--arrondiInput);
 }
 
 #main {
     margin: auto;
-    width: 50%;
 }
 
 #messages{
     overflow-y: scroll;
-    width: 55em;
     height: 30em;
 }
 
 .myMessages{
-    margin-right: 1em;
-    margin-left: 30em;
     margin-bottom: 1em;
-    float: right;
     background-color: var(--rose);
     border-radius: 25px;
-    padding: 10px;
+    width: 50% !important;
+    padding: 1em;
 }
 .othersMessages{
-    margin-right: 30em;
     margin-bottom: 1em;
-    float: left;
-    background-color: darkblue;
+    background-color: #041D50;
     border-radius: 25px;
-    padding: 10px;
+    width: 50% !important;
+    padding: 1em;
 }
 .content{
     color: white;
@@ -53,15 +46,12 @@ h1{
     color: white;
 }
 #sendMessage{
-    width: 60em;
     height: 5em;
 }
 
 #messageInput{
-    width: 60em;
     height: 5em;
 }
 #submitButton{
-    width: 5em;
     height: 5em;
 }
