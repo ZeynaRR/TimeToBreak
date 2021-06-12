@@ -23,16 +23,16 @@
     <?php if ($status == "1" && $isTime) {
         include("header.php"); ?>
         <h1>Suggestions de jeux pour vous ! </h1><br>
-        <div class="gamesList container-fluid">
-                <?php
-                while ($game = $gamesList->fetch()) { ?>
-                <div class="row">
-                    <div class="game">
-                        <div class="col text-center">
+        <div class="gamesList container">
+        <div class="row">
+            <?php
+            while ($game = $gamesList->fetch()) { ?>
+                    <div class="game col-6 ">
+                        <div class="text-center">
                             <h3><?php echo $game['nameOfTheGame'] ?></h3>
+                            <div class="row">
                             <img src="<?php echo $game['imageGame'] ?>" alt="name of the game" class="gameImage" />
-                        </div>
-                        <div class="co text-center">
+                            </div>
                             <p class="theme">Thème(s) : <?php echo $game['tags'] ?></p>
                             <p class="gameComment">
                                 <?php echo $game['contentOfTheGame'] ?>
@@ -40,9 +40,9 @@
                             <a class="play" href="<?php echo $game['linkToTheGame'] ?>" style="text-decoration: none"><button class="play">Jouer !</button></a>
                         </div>
                     </div>
-                    </div>
-                <?php } ?>
-            
+            <?php } ?>
+            </div>
+
         </div>
     <?php } else {
         header("Location: ?action=tdb");

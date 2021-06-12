@@ -4,13 +4,8 @@
     border-radius: 20px;
     padding-top: 50px;
     padding-bottom: 50px;
-    width:95% !important;
 }
 
-.game {
-    margin-bottom: 40px;
-    padding-bottom: 25px;
-}
 
 a[class="play"] {
     color: white;
@@ -18,6 +13,10 @@ a[class="play"] {
 
 a[class="play"]:hover {
     color: var(--rose);
+}
+
+.game{
+    margin-bottom:2em;
 }
 
 .gameComment {
@@ -30,6 +29,7 @@ a[class="play"]:hover {
     line-height: 2em;
     border:2px solid lightpink;
     border-radius: 10px;
+    height: 10em;
 }
 
 button[class="play"] {
@@ -52,6 +52,7 @@ h3 {
 
 img[class="gameImage"] {
     margin-bottom: 15px;
+    height: 22vw;
 }
 
 .theme {
