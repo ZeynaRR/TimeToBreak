@@ -24,7 +24,7 @@
         </div>
         <form id="sendMessage" method="post" action="?action=sendMessage">
             <input type="hidden" value="<?php echo htmlspecialchars($_GET['idRoom'])?>" name="idRoom" id="idRoom">
-            <input type="text" name="messageInput" id="messageInput">
+            <input type="text" name="messageInput" id="messageInput" maxlength="255">
             <input type="submit" value="Submit" id="submitButton">
         </form>
     </div>

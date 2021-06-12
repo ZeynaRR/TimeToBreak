@@ -27,6 +27,7 @@ h1{
     border-radius: 25px;
     width: 50% !important;
     padding: 1em;
+    overflow-wrap: break-word;
 }
 .othersMessages{
     margin-bottom: 1em;
