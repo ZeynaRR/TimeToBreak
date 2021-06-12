@@ -20,9 +20,9 @@
 
 <body>
     <?php include("header.php"); ?>
+    <h1> Inscription </h1>
     <div id="divForm" class="container-sm">
         <div class="row text-center">
-            <h1> Inscription </h1>
             <form id='form' method="post" onsubmit="return valideFormulaire(this)">
                 <label>Adresse mail</label>
                 <div class="form-group centered">
