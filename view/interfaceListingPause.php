@@ -18,7 +18,7 @@
 	<meta name="theme-color" content="#ffffff">
 </head>
 
-<body>
+<body onLoad="window.setTimeout('history.go(0)', 30000)">
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 
 	<?php include("../view/header.php"); ?>
@@ -63,6 +63,9 @@
 
 </html>
 <?php
+
+runningMailingNotificationForBreakBegin();
+autodestructionBreakFinishedUsingDateTimeEndBreak();
 
 function selectMyPauseFromDataBaseAndDisplayIt()
 {
