@@ -3,12 +3,11 @@
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
         <link rel="stylesheet" href="css/tdb.css" />
-        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
 	<title>Tableau de bord</title>
 </head>
@@ -19,9 +18,9 @@
 
         <h1 id="main_title">Mon tableau de bord</h1>
 
-	<div class="contain">
+	<div class="container-fluid">
 		<div class="row">
-                <div class="col justify-content-center align-items-center">
+                <div class="col-sm-6 justify-content-center align-items-center">
                 	<div class="division" id="general" <?php if($status!="1"){ ?> style="margin-top: 3%;" <?php }?>>
                                 <ul>
                                         <li><i class="fa fa-user" aria-hidden="true"></i><a href="?action=profile">&nbsp;&nbsp; Accéder à mon profil</a></li>
@@ -40,17 +39,16 @@
                         <?php } ?>
                 </div>
 
-                <div class="col justify-content-center align-items-center" id="right-part">
-                	<div class="division" id="activities" <?php if($status=="1"){ ?> style="margin-top: 5%;" <?php } ?>>
+                <div class="col-sm-6 justify-content-center align-items-center" id="right-part">
+                	<div class="division" id="activities" <?php if($status=="1"){ ?> style="margin-top: 18%;" <?php } ?>>
                                 <?php if($status=="1"){ ?>
                 		      <h3>Mes activités</h3>
                         		<?php if($isTime){ ?>
                                                 <ul class="list-group">
-
-                                                        <li class="list-group-item"><i class="fa fa-comment-o" aria-hidden="true"></i><a href="?action=selectChatRoom">&nbsp;&nbsp;Salons de discussion</a></li>
-                                                        <li class="list-group-item"><i class="fa fa-play-circle-o" aria-hidden="true"></i><a href="?action=games">&nbsp;&nbsp;Jouer</a></li>
-                                                        <li class="list-group-item"><i class="fa fa-heart-o" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Étirements</a></li>
-                                                        <li class="list-group-item"><i class="fa fa-forward" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Autres activités</a></li>  
+                                                        <li class="list-group-item"><i class="fa fa-camera-retro"aria-hidden ="true" ></i><a href="?action=selectChatRoom">&nbsp;&nbsp;Salons de discussion</a></li>
+                                                        <li class="list-group-item"><i class="fa fa-play-circle" aria-hidden="true"></i><a href="?action=games">&nbsp;&nbsp;Jouer</a></li>
+                                                        <!-- <li class="list-group-item"><i class="fa fa-heart-o" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Étirements</a></li>
+                                                        <li class="list-group-item"><i class="fa fa-forward" aria-hidden="true"></i><a href="">&nbsp;&nbsp;Autres activités</a></li>   -->
                                                 </ul>
                         		<?php } 
                                         else { ?>
@@ -80,5 +78,7 @@
                 </div>
         </div>
 	</div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
 </body>

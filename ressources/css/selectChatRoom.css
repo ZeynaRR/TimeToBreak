@@ -8,11 +8,10 @@ h1{
 
 #main {
     margin: auto;
-    width: 50%;
 }
 .search-container{
     margin: auto;
-    float: right;
+    /* float: right; */
 }
 
 #searchIcon{
@@ -22,7 +21,6 @@ h1{
 #DivSalons{
     border: 10px solid var(--rose);
     margin: auto;
-    width: 55em;
     padding: 2em;
     border-radius: var(--arrondiInput);
     column-count: 2;

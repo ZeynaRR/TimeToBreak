@@ -1,18 +1,14 @@
 .gamesList {
     border: 10px solid var(--rose);
-    width:90%;
     margin:auto;
     border-radius: 20px;
     padding-top: 50px;
     padding-bottom: 50px;
-    display:flex;
-    flex-wrap: wrap;
+    width:95% !important;
 }
 
 .game {
-    margin-left:80px;
     margin-bottom: 40px;
-    width: 40%;
     padding-bottom: 25px;
 }
 
@@ -27,7 +23,6 @@ a[class="play"]:hover {
 .gameComment {
     padding:5px;
     margin-top:20px;
-    height: 30%;
     overflow: auto;
     margin-bottom:20px;
     text-align: justify;
@@ -38,7 +33,6 @@ a[class="play"]:hover {
 }
 
 button[class="play"] {
-    margin-left: 190px;
     background-color: var(--rose);
     border-radius: 10px;
     height: 40px;
@@ -52,15 +46,11 @@ button[class="play"]:hover {
 
 h3 {
     color: #ffbc03;
-    text-align: center;
     margin-bottom: 15px;
     font-family: "Arial Nova";
 }
 
 img[class="gameImage"] {
-    margin-left: 85px;
-    width: 300px;
-    height: 220px;
     margin-bottom: 15px;
 }
 
@@ -68,5 +58,4 @@ img[class="gameImage"] {
     color: #ffbc03;
     font-family: "Arial Nova";
     font-size: 20px;
-    text-align: center;
 }

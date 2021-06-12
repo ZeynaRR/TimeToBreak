@@ -1,5 +1,7 @@
 #form{
-    display:grid;
+    display : flex;
+    flex-direction : column; 
+    width : 100%;
 }
 
 
@@ -10,6 +12,7 @@
     border: 1px solid transparent;
     font-size: 15px;
     height: 2em;
+    
 }
 
 #inscription:hover {
@@ -36,7 +39,6 @@ input[type="image"] {
 }
 
 #divForm{
-    width: 45em;
     border: 10px solid var(--rose);
     padding: 2em;
     border-radius: var(--arrondiInput);
