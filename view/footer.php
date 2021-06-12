@@ -11,7 +11,7 @@
 
 <body>
 <footer class="text-center text-lg-start mt-auto">
-  <section>
+  <div>
     <div class="container text-center text-md-start mt-5">
       <div class="row mt-3">
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
   <div class="text-center">
     © 2021 Copyright: TimeToBreak
   </div>

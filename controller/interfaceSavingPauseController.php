@@ -1,7 +1,4 @@
 <?php
-	require("../model/model.php");
-
-
-	
+	require("../model/model.php");	
 
 ?>

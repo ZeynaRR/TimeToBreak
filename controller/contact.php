@@ -4,6 +4,7 @@
 
 	if(isDataValidForSendingEmailToTimeToBreak()){
 		generateEmailToAdminTimeToBreak();
+		echo "1";
 	}
 	else{
 		echo "0";
