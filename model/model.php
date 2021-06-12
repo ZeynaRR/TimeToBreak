@@ -249,14 +249,32 @@ function updateDatabaseBreak()
 		$nameOfTheBreak = htmlspecialchars($_POST["nameOfTheBreak1"]);
 	}
 
-	$request = $bdd->prepare('UPDATE break SET idUser=:newIdUser, datetimeBeginBreak=:newDatetimeBeginBreak, datetimeEndBreak=:newDatetimeEndBreak, datetimeLastUpdate=:newDatetimeEndBreak, nameOfTheBreak=:newNameOfTheBreak WHERE idBreak=' . htmlspecialchars($_GET['idBreak']));
+	$request = $bdd->prepare('UPDATE break SET datetimeBeginBreak=:newDatetimeBeginBreak, datetimeEndBreak=:newDatetimeEndBreak, datetimeLastUpdate=:newDatetimeEndBreak, nameOfTheBreak=:newNameOfTheBreak WHERE idBreak=' . htmlspecialchars($_GET['idBreak']));
 	$request->execute(array(
-		'newIdUser' => 118218, ///////////////////////////////////////////////////////--*-*-*-
 		'newDatetimeBeginBreak' => $datetimeBeginBreak,
 		'newDatetimeEndBreak' => $datetimeEndBreak,
 		'newDatetimeLastUpdate' => $datetimeLastUpdate,
 		'newNameOfTheBreak' => $nameOfTheBreak,
 	));
+}
+function extractYearsFromDatetime($myDatetime)
+{
+	$tableTime = explode(" ", $myDatetime);
+	return $tableTime[0];
+}
+function extractHoursMinFromDatetime($myDatetime)
+{
+	$tableTime = explode(" ", $myDatetime);
+	return $tableTime[1];
+}
+
+function getTheBreakByTheId($idBreak)
+{
+	$bdd = dataBaseConnection();
+	$request = $bdd->prepare('SELECT * FROM break WHERE idBreak = ?');
+	$request->execute(array($idBreak));
+	$data = $request->fetch();
+	return $data;
 }
 
 function getAllBreaks()

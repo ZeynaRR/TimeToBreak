@@ -79,9 +79,7 @@
 								</td>
 							</tr>
 						<?php
-							}
-						
-						//selectMyPauseFromDataBaseAndDisplayIt()
+							}					
 						?>
 					</tbody>
 				</table>

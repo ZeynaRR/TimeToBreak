@@ -30,69 +30,37 @@
 			<h1>Mise à jour d'une pause</h1>
 
 			<section>
-				<?php
-				displayTheCorrepondingBreak();
-				?>
+			<form method="post" id="formSavingBreaks">
+				<label for="dateOfTheBreak">Date pause</label>
+				<div class="form-group centered">
+					<div class="col-sm-6">
+						<input type="date" name="dateOfTheBreak" id="dateOfTheBreak" value="<?php echo extractYearsFromDatetime($data["datetimeBeginBreak"]); ?>" required />
+					</div>
+				</div>
+				<label for="beginOfTheBreak">Heure debut:</label>
+				<div class="form-group centered">
+					<div class="col-sm-6">
+						<input type="time" name="beginOfTheBreak" id="beginOfTheBreak" value="<?php echo extractHoursMinFromDatetime($data["datetimeBeginBreak"]); ?>" required />
+					</div>
+				</div>
+				<label for="endOfTheBreak">Heure fin</label>
+				<div class="form-group centered">
+					<div class="col-sm-6">
+						<input type="time" name="endOfTheBreak" id="endOfTheBreak" value="<?php echo extractHoursMinFromDatetime($data["datetimeEndBreak"]); ?>" required />
+					</div>
+				</div>
+				<label for="nameOfTheBreak">Nom de la pause</label>
+				<div class="form-group centered">
+					<div class="col-sm-6">
+						<input type="text" name="nameOfTheBreak" id="nameOfTheBreak" value="<?php echo $data["nameOfTheBreak"]; ?>" />
+					</div>
+				</div>
+				<div class="form-group centered">
+					<input id="enregistrement" type="submit" value="Enregistrer ma pause >">
+				</div>
+			</form>
 			</section>
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 
 </html>
-<?php
-
-//********NO MVC FOR SOME REASONS PURPOSES----
-function dataBaseConnection2(){
-	$bdd = new PDO('mysql:host=localhost;dbname=timetobreak;charset=utf8', 'root', '');
-	return $bdd;
-}
-function displayTheCorrepondingBreak()
-{
-	$bdd = dataBaseConnection2();
-	$idBreak = htmlspecialchars($_GET['idBreak']);
-	$request = $bdd->prepare('SELECT * FROM break WHERE idBreak = ?');
-	$request->execute(array($idBreak));
-	$data = $request->fetch();
-?>
-	<form method="post" id="formSavingBreaks">
-		<label for="dateOfTheBreak">Date pause</label>
-		<div class="form-group centered">
-			<div class="col-sm-6">
-				<input type="date" name="dateOfTheBreak" id="dateOfTheBreak" value="<?php echo extractYearsFromDatetime($data["datetimeBeginBreak"]); ?>" required />
-			</div>
-		</div>
-		<label for="beginOfTheBreak">Heure debut:</label>
-		<div class="form-group centered">
-			<div class="col-sm-6">
-				<input type="time" name="beginOfTheBreak" id="beginOfTheBreak" value="<?php echo extractHoursMinFromDatetime($data["datetimeBeginBreak"]); ?>" required />
-			</div>
-		</div>
-		<label for="endOfTheBreak">Heure fin</label>
-		<div class="form-group centered">
-			<div class="col-sm-6">
-				<input type="time" name="endOfTheBreak" id="endOfTheBreak" value="<?php echo extractHoursMinFromDatetime($data["datetimeEndBreak"]); ?>" required />
-			</div>
-		</div>
-		<label for="nameOfTheBreak">Nom de la pause</label>
-		<div class="form-group centered">
-			<div class="col-sm-6">
-				<input type="text" name="nameOfTheBreak" id="nameOfTheBreak" value="<?php echo $data["nameOfTheBreak"]; ?>" />
-			</div>
-		</div>
-		<div class="form-group centered">
-			<input id="enregistrement" type="submit" value="Enregistrer ma pause >">
-		</div>
-	</form>
-<?php
-}
-
-function extractYearsFromDatetime($myDatetime)
-{
-	$tableTime = explode(" ", $myDatetime);
-	return $tableTime[0];
-}
-function extractHoursMinFromDatetime($myDatetime)
-{
-	$tableTime = explode(" ", $myDatetime);
-	return $tableTime[1];
-}
-?>
