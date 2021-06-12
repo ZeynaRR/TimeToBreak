@@ -35,14 +35,15 @@
                             <input type="password" name="password" id="password" />
                         </div>
                         <input name="passwordView" type="image" src="images/mdp.png" id="masque" title="Masquer/démasquer le mot de passe pour vérifier" onclick="displayPassword(); return false;">
-                       ><br>
-                        <div class="errors" id="erreurs"></div>
+                       <br>
                         <?php
                         if (isset($error) && !empty($error)) {
                         ?>
+                        <div class="centered">
                             <div class="errorAuthentication">
                                 <?php echo $error; ?>
                             </div>
+                        </div>
                         <?php } ?>
                         <input id="connexion" type="submit" value="Se connecter  >" onclick="return areAllFieldsCompleted()" />
                     </form>
