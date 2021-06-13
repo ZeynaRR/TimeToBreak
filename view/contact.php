@@ -24,7 +24,7 @@
     ?>
          <h1> Contact </h1>
 
-         <div class="container">
+         <div class="container content">
              <div id="texte" class="row text-center">
                  <p id=" entete">
                      Vous avez un souci, contacter nous.

@@ -24,7 +24,7 @@
 	<?php include("../view/header.php"); ?>
 
 	<h1>Mes pauses:</h1>
-	<section class="container">
+	<section class="container content">
 		<div class="row">
 			<div class="col-sm-12">
 				<a href="?action=createBreak" id="addBreak"> Ajouter une pause</a>

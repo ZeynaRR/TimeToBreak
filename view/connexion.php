@@ -21,7 +21,7 @@
 
 <body>
     <?php include("header.php"); ?>
-        <div id="divForm" class="container-sm">
+        <div id="divForm" class="container-sm content">
             <div class="row text-center">
                 <h1>Connexion</h1>
                 <div class="connexion">

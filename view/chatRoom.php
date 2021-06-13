@@ -17,7 +17,7 @@
 }
 ?>
 <h1> <?php echo getRoomInfo() ?> </h1>
-<div id="main" class="container">
+<div id="main" class="container content">
     <div id="chatBox">
         <div id="messages">
             <?php getMessages(htmlspecialchars($_GET['idRoom'])); ?>

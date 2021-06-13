@@ -81,3 +81,7 @@ img[class="logoInscription-Connexion"] {
 #home, .inscription-connexion, .disconnection{
     color:white !important;
 }
+
+.content{
+    height: 100vh;
+}

@@ -16,7 +16,7 @@
 }
 ?>
 <h1> Salons de Discussions </h1>
-<div class="container-fluid">
+<div class="container-fluid content">
 <div id="main">
     <div id="DivSalons" class='row'>
        <?php affSalonsDeDiscussions();?>

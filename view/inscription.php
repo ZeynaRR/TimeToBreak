@@ -21,7 +21,7 @@
 <body>
     <?php include("header.php"); ?>
     <h1> Inscription </h1>
-    <div id="divForm" class="container-sm">
+    <div id="divForm" class="container-sm content">
         <div class="row text-center">
             <form id='form' method="post" onsubmit="return valideFormulaire(this)">
                 <p class="erreurs" id="erreurMail"></p>

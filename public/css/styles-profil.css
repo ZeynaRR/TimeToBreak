@@ -7,7 +7,6 @@
 
 .dashboard {
     background: #4A707C;
-    height: 100vh;
 }
 
 .profile {
@@ -17,7 +16,6 @@
 .form1 {
     padding: 10%;
     background: #6299AB;
-    margin: 74px -5px;
 }
 
 .form1 label {
@@ -31,43 +29,4 @@
     width: 70%;
 }
 
-.form1 button {
-    border: none;
-    border-radius: 12px;
-    margin-left: 20px;
-    padding: 5px 17px;
-    background: #4F4F4F;
-    color: white;
-}
 
-.form2 {
-    padding: 10%;
-    background: #E98182;
-    margin: 0 -5px;
-}
-
-.form2 button {
-    border: none;
-    border-radius: 12px;
-    margin-left: 20px;
-    padding: 5px 17px;
-    background: #e65153;
-    color: white;
-}
-
-.form2 h2 {
-    margin-bottom: 46px;
-    text-align: center;
-}
-
-.form2 select {
-    width: 180px;
-    padding: 5px;
-    border-radius: 8px;
-    background: #dc3573;
-    border: none;
-}
-
-.dropdownMenuButton {
-    background-color: white;
-}

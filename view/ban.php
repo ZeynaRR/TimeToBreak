@@ -25,7 +25,7 @@
 
 	<h1 id="main_title">Bannir un membre</h1>
 
-	<div class="container">
+	<div class="container content">
 
 		<ul class="nav nav-tabs">  
 		    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#users">Utilisateurs</a></li>  

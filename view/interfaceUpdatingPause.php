@@ -25,7 +25,7 @@
 	<!--include a menue-->
 	<?php include("../view/header.php"); ?>
 
-	<div id="divFormEnregistrement" class="container-sm">
+	<div id="divFormEnregistrement" class="container-sm content">
 		<div class="row text-center">
 			<h1>Mise à jour d'une pause</h1>
 

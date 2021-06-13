@@ -24,7 +24,7 @@
 <body>
     
     <?php include("header.php"); ?>
-    <div id="divForm" class="container">
+    <div id="divForm" class="container content">
         <div class="row text-center">
             <h1> Code Moderator </h1>
             <form id='form' method="post" onsubmit="return valideFormulaire(this)">

@@ -22,7 +22,7 @@
 	
 	<?php include("../view/header.php") ?>
 
-	<div id="divFormEnregistrement" class="container-sm">
+	<div id="divFormEnregistrement" class="container-sm content">
 		<div class="row text-center">
 			<h1>Enregistrement d'une pause</h1>
 				<form action="../public/index.php?action=addBreak" method="post" id="formSavingBreaks">
