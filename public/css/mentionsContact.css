@@ -1,6 +1,6 @@
 div {
-    color: var(--texteGris);
-    font-size: 20px;
+    color:white;
+    text-decoration: none;
 }
 
 input[type="email"],

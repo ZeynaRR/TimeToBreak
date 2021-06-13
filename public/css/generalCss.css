@@ -29,7 +29,6 @@ header {
 footer{
     background-color: var(--header);
     color:white;
-    text-decoration: none;
     position:relative;
     bottom:0px;
 }

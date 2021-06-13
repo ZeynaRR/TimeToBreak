@@ -16,12 +16,12 @@
       <div class="row mt-3">
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <p>
-            <a href="?action=mentionsLegales" class="text-reset">Mentions Légales</a>
+            <a href="?action=mentionsLegales" class="text-reset text-decoration-none">Mentions Légales</a>
           </p>
         </div>
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <p>
-            <a href="?action=contact" class="text-reset">Contact</a>
+            <a href="?action=contact" class="text-reset text-decoration-none">Contact</a>
           </p>
         </div>
       </div>
