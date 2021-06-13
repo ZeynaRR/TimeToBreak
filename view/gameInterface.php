@@ -37,7 +37,7 @@
                             <p class="gameComment">
                                 <?php echo $game['contentOfTheGame'] ?>
                             </p>
-                            <a class="play" href="<?php echo $game['linkToTheGame'] ?>" style="text-decoration: none"><button class="play">Jouer !</button></a>
+                            <a class="play" href="<?php echo $game['linkToTheGame'] ?>" target="_blank" style="text-decoration: none"><button class="play">Jouer !</button></a>
                         </div>
                     </div>
             <?php } ?>
