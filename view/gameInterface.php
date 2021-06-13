@@ -23,7 +23,7 @@
     <?php if ($status == "1" && $isTime) {
         include("header.php"); ?>
         <h1>Suggestions de jeux pour vous ! </h1><br>
-        <div class="gamesList container content">
+        <div class="gamesList container">
         <div class="row">
             <?php
             while ($game = $gamesList->fetch()) { ?>
