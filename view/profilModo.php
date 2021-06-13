@@ -19,7 +19,7 @@
 	<div class="row dashboard content">
 		<div class="col-md-4 text-center">
 			<div class="profile">
-				<img src="images/modo" class="rounded-circle" width="155">
+				<img src="images/modo.png" class="rounded-circle" width="155">
 				<h2>Mon profil</h2>
 			</div>
 		</div>
