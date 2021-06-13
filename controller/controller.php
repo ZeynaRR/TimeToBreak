@@ -168,13 +168,15 @@ function games() {
 
 function profile() {
     if (isset($_SESSION['status'])) {
-        $session = $_SESSION['status'];
-        if ($session == 1) {
-            require("../view/profil-user.php");
-        } else if ($session == 2) {
-            require("../view/Profil-moder.php");
-        } else if ($session == 3) {
-            require("../view/Profil-admin.php");
+        $status = $_SESSION['status'];
+        $mail = $_SESSION['mail'];
+        $pseudo = $_SESSION['pseudo'];
+        if ($status == 1) {
+            require("../view/profilUser.php");
+        } else if ($status == 2) {
+            require("../view/profilModo.php");
+        } else if ($status == 3) {
+            require("../view/profilAdmin.php");
         }
     } else {
         header("Location: ?action=connection");

@@ -25,17 +25,10 @@
 										<div class="row">
 											<div class="col-8">
 												<section class="form1">
-													<div class="row">
-														
 														<div class="col">
-                                                            <form action="">
-                                                                <label for="">Login : <input type="text" name="">
-                                                                <button class="btn btn-primary btn-lg float-end">Modifier</button></label>
-                                                                <label for="">Mot de passe: <input type="password" name="">
-                                                                <button class="btn btn-primary btn-lg float-end"> Rénitialiser</button></label>
-                                                            </form>
+                                                            <label for="login">Login :</label> <input type="text" value="<?php echo $mail?>" name="login"><br><br>
+                                                            <label for="pseudo">Pseudo : </label><input type="text" value="<?php echo $pseudo ?>" name ="pseudo">
                                                         </div>
-													</div>
 												</section>
 											</div>
 										</div>
