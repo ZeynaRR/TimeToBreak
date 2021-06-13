@@ -11,9 +11,9 @@
 						<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
 						<link href="css/styles-profil.css" rel="stylesheet">
 						</head>
-                        <title> Profil Admin</title>
+                        <title> Profil</title>
 						<body>
-                        <?php  include("header.php"); ?>
+                            <?php include("header.php"); ?>
 							<div class="row dashboard">
 								<div class="col-md-4">
 									<div class="profile">
@@ -25,23 +25,29 @@
 										<div class="row">
 											<div class="col-8">
 												<section class="form1">
-													<div class="row">
-														
-														<div class="col">
-                                                            <form action="">
-                                                                <label for="">Login : <input type="text" name="">
-                                                                <button class="btn btn-primary btn-lg float-end">Modifier</button></label>
-                                                                <label for="">Mot de passe: <input type="password" name="">
-                                                                <button class="btn btn-primary btn-lg float-end"> Rénitialiser</button></label>
-                                                            </form>
-                                                        </div>
-													</div>
+                                                    <div class="col">
+                                                        <label for="pseudo">Pseudo: </label><input type="text" name="pseudo" value="<?php echo $pseudo ?>">
+                                                    </div><br><br>
+                                                    <div class="col">
+                                                        <label for="login">Login : </label> <input type="text" name="login" value="<?php echo $mail ?>">
+                                                    </div>
 												</section>
 											</div>
 										</div>
-										<div class="row">
-											<div class="col-8">
-												
+										
+															<div class="btn-group">
+ 
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+</div>
+														</div>
+													</form>
+												</section>
 											</div>
 										</div>
 									</div>
